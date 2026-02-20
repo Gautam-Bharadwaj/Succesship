@@ -46,3 +46,27 @@ graph TD
     Metric3 --> AI
     WM --> AI
     
+    %% Output
+    AI --> Action[Execute Action Override] ::: decision
+    AI --> Explain[Generate Reasoning Citation] ::: decision
+    
+    %% Memory Lifecycle Sub-Flow
+    subgraph Memory Lifecycle [Data Storage Pipeline]
+    EM_Update(New Event Logged) --> Fresh[(Fresh Data: 0-30 Days <br/> Fast DB)] ::: storage
+    Fresh --> Maturing[(Maturing: 30-180 Days <br/> Vector DB)] ::: storage
+    Maturing --> Stale[(Archived: 180+ Days <br/> Cold Storage)] ::: storage
+    end
+    
+    %% Adding connection from Lifecycle to overall system
+    Fresh -.-> EM
+    Maturing -.-> EM
+```
+
+## Core Architecture
+When a human processes a business event, like an invoice approval, they evaluate the immediate context, which involves the surface-level details of the current transaction. They also consider historical context, recalling previous experiences with the parties involved, and relational context, assessing the wider impact or risk associated with the entity.
+
+This dashboard visualizes how an AI system replicates this cognitive process. It categorizes data into Working Memory, Episodic Memory, and Semantic Graphs. It implements a Temporal Decay algorithm that ensures recent, highly impactful memories carry more weight than older, irrelevant ones. Furthermore, it runs two simulated scenarios involving Invoice Validation and Support Escalation to demonstrate how the agent intelligently overrides standard operational procedures based on retrieved historical context.
+
+## Architectural Responses to Core Challenges
+
+The following section outlines the system design decisions addressing the specific technical challenges posed in the assignment.
