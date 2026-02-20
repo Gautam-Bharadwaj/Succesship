@@ -124,3 +124,45 @@ const ArchitectureView = () => (
 
       <div className="card">
         <h3 className="section-label">
+          <Activity size={16} /> Memory Lifecycle
+        </h3>
+        <div className="memory-list">
+          <div className="memory-item info">
+            <div className="memory-header">
+              <span className="memory-title">Fresh</span>
+              <span className="memory-time">0-30 Days</span>
+            </div>
+            <div className="memory-body">High priority. Loaded directly for the agent to consider.</div>
+          </div>
+          <div className="memory-item warning">
+            <div className="memory-header">
+              <span className="memory-title">Maturing</span>
+              <span className="memory-time">30-180 Days</span>
+            </div>
+            <div className="memory-body">Summarized and only pulled in if related to the current task.</div>
+          </div>
+          <div className="memory-item danger">
+            <div className="memory-header">
+              <span className="memory-title">Stale / Archived</span>
+              <span className="memory-time">180+ Days</span>
+            </div>
+            <div className="memory-body">Hidden away unless a systemic pattern keeps repeating.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Scenario 1
+const InvoiceScenario = () => (
+  <div className="animate-fade-in">
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+      <div>
+        <h1 className="page-title">Invoice Processing</h1>
+        <p className="page-description" style={{ marginBottom: 0 }}>
+          Assessing Supplier XYZ's new invoice (#INV-88301) for ₹2,50,000.
+        </p>
+      </div>
+      <div className="status-badge active">Live Demo</div>
+    </div>
