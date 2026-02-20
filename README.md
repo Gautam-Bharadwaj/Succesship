@@ -22,3 +22,27 @@ graph TD
     %% Input Layer
     Trigger(Incoming Business Task <br/> e.g., New Invoice, Support Ticket) ::: incoming
     
+    %% Immediate Processing Layer
+    Trigger --> WM[Working Memory <br/> Immediate Context] ::: memory
+    
+    %% The Retrieval Core
+    WM --> Router{Retrieval Engine} ::: engine
+    
+    %% Backing Memory sources
+    Router -.->|Queries| EM[Episodic Memory <br/> Past Interactions] ::: memory
+    Router -.->|Queries| SG[Semantic Graph <br/> Entities & Relationships] ::: memory
+    
+    %% How it weights data
+    EM --> Weighting[Rank Context] ::: process
+    SG --> Weighting
+    
+    %% Ranking Metrics
+    Weighting --> Metric1(Semantic Similarity)
+    Weighting --> Metric2(Direct Graph Link)
+    Weighting --> Metric3(Temporal Decay Penalty)
+    
+    Metric1 --> AI[Decision Synthesis Core] ::: decision
+    Metric2 --> AI
+    Metric3 --> AI
+    WM --> AI
+    
