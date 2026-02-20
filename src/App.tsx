@@ -292,3 +292,39 @@ const SupportScenario = () => (
               <span className="memory-time">6 Months Ago</span>
             </div>
             <div className="memory-body">
+              They had the exact same 503 error before. It took us 48 hours to fix and they were extremely frustrated.
+            </div>
+          </div>
+          <div className="memory-item info">
+            <div className="memory-header">
+              <span className="memory-title">Communication Preference</span>
+              <span className="memory-time">Always</span>
+            </div>
+            <div className="memory-body">
+              Their CTO hates summary emails. Always wants detailed, technical root-cause analysis straight away.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="decision-box grid-full">
+        <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+          <Cpu size={16} /> AI Agent Decision
+        </h3>
+        <div className="decision-action">
+          <AlertTriangle size={28} /> Escalate to Tier 3 & Send Tech Details
+        </div>
+        <div className="decision-reason text-muted">
+          We technically have 4 hours to fix this according to our SLA, but the CRM history shows they almost left us 2 months ago and hated this exact bug 6 months ago. So, the agent bypasses standard support, sends it straight to Tier 3 Engineering, and drafts a highly technical response tailored specifically for the CTO's preferences.
+        </div>
+        <div className="tags">
+          <span className="tag success" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>Risk: Churn</span>
+          <span className="tag" style={{ background: 'var(--status-warning-bg)', color: 'var(--status-warning)' }}>Action: Ignore SLA, Escalate</span>
+          <span className="tag" style={{ background: 'var(--status-target-bg)', color: 'var(--status-target)' }}>Tone: Highly Technical</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+export default App;
