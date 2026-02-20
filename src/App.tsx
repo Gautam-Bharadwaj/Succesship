@@ -208,3 +208,45 @@ const InvoiceScenario = () => (
           </div>
           <div className="memory-item warning">
             <div className="memory-header">
+              <span className="memory-title">Payment Friction</span>
+              <span className="memory-time">8 Months Ago</span>
+            </div>
+            <div className="memory-body">
+              Vendor claimed they didn't get payment for invoice #INV-4412 even though we sent it.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="decision-box danger-theme grid-full">
+        <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+          <Cpu size={16} /> AI Agent Decision
+        </h3>
+        <div className="decision-action">
+          <ShieldAlert size={28} /> Hold Payment & Flag for QA
+        </div>
+        <div className="decision-reason">
+          Even though the PO matches up perfectly right now, the system remembers that this supplier caused a major financial hit just 4 months ago due to bad quality. So, the agent halts the normal payment process and forces a manual QA check first.
+        </div>
+        <div className="tags">
+          <span className="tag danger">Risk Index: High</span>
+          <span className="tag warning">Time Decay: Minimal</span>
+          <span className="tag dark">Pattern: Quality Issues</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Scenario 2
+const SupportScenario = () => (
+  <div className="animate-fade-in">
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+      <div>
+        <h1 className="page-title">Support Ticket Escalation</h1>
+        <p className="page-description" style={{ marginBottom: 0 }}>
+          TechCorp Inc. just reported a 503 API error. Priority is currently Tier 2.
+        </p>
+      </div>
+      <div className="status-badge active">Live Demo</div>
+    </div>
