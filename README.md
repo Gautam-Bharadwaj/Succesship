@@ -20,41 +20,41 @@ graph TD
     classDef storage fill:#fef2f2,stroke:#ef4444,stroke-width:1px;
     
     %% Input Layer
-    Trigger(Incoming Business Task <br/> e.g., New Invoice, Support Ticket) ::: incoming
+    Trigger("Incoming Business Task <br/> e.g., New Invoice, Support Ticket") ::: incoming
     
     %% Immediate Processing Layer
-    Trigger --> WM[Working Memory <br/> Immediate Context] ::: memory
+    Trigger --> WM["Working Memory <br/> Immediate Context"] ::: memory
     
     %% The Retrieval Core
-    WM --> Router{Retrieval Engine} ::: engine
+    WM --> Router{"Retrieval Engine"} ::: engine
     
     %% Backing Memory sources
-    Router -.->|Queries| EM[Episodic Memory <br/> Past Interactions] ::: memory
-    Router -.->|Queries| SG[Semantic Graph <br/> Entities & Relationships] ::: memory
+    Router -.->|Queries| EM["Episodic Memory <br/> Past Interactions"] ::: memory
+    Router -.->|Queries| SG["Semantic Graph <br/> Entities & Relationships"] ::: memory
     
     %% How it weights data
-    EM --> Weighting[Rank Context] ::: process
+    EM --> Weighting["Rank Context"] ::: process
     SG --> Weighting
     
     %% Ranking Metrics
-    Weighting --> Metric1(Semantic Similarity)
-    Weighting --> Metric2(Direct Graph Link)
-    Weighting --> Metric3(Temporal Decay Penalty)
+    Weighting --> Metric1("Semantic Similarity")
+    Weighting --> Metric2("Direct Graph Link")
+    Weighting --> Metric3("Temporal Decay Penalty")
     
-    Metric1 --> AI[Decision Synthesis Core] ::: decision
+    Metric1 --> AI["Decision Synthesis Core"] ::: decision
     Metric2 --> AI
     Metric3 --> AI
     WM --> AI
     
     %% Output
-    AI --> Action[Execute Action Override] ::: decision
-    AI --> Explain[Generate Reasoning Citation] ::: decision
+    AI --> Action["Execute Action Override"] ::: decision
+    AI --> Explain["Generate Reasoning Citation"] ::: decision
     
     %% Memory Lifecycle Sub-Flow
     subgraph Memory Lifecycle [Data Storage Pipeline]
-    EM_Update(New Event Logged) --> Fresh[(Fresh Data: 0-30 Days <br/> Fast DB)] ::: storage
-    Fresh --> Maturing[(Maturing: 30-180 Days <br/> Vector DB)] ::: storage
-    Maturing --> Stale[(Archived: 180+ Days <br/> Cold Storage)] ::: storage
+    EM_Update("New Event Logged") --> Fresh[("Fresh Data: 0-30 Days <br/> Fast DB")] ::: storage
+    Fresh --> Maturing[("Maturing: 30-180 Days <br/> Vector DB")] ::: storage
+    Maturing --> Stale[("Archived: 180+ Days <br/> Cold Storage")] ::: storage
     end
     
     %% Adding connection from Lifecycle to overall system
