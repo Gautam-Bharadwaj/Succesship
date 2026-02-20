@@ -82,3 +82,45 @@ const ArchitectureView = () => (
             <div className="arch-desc">What the agent is working on right now. (e.g. current invoice).</div>
           </div>
           <div className="arch-node">
+            <div className="arch-icon"><History size={20} /></div>
+            <div className="arch-title">Episodic Memory</div>
+            <div className="arch-desc">Records of past interactions and events over time.</div>
+          </div>
+          <div className="arch-node">
+            <div className="arch-icon"><Network size={20} /></div>
+            <div className="arch-title">Semantic Graph</div>
+            <div className="arch-desc">General facts and how different entities are connected.</div>
+          </div>
+          <div className="arch-node">
+            <div className="arch-icon"><Zap size={20} /></div>
+            <div className="arch-title">Retrieval Engine</div>
+            <div className="arch-desc">Finds relevant past info based on time and context.</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3 className="section-label">
+          <Link2 size={16} /> How We Rank Context
+        </h3>
+        <div className="data-group" style={{ marginBottom: '24px' }}>
+          <div className="data-row">
+            <span className="data-label">1. Semantic Similarity</span>
+            <span className="data-value">Vector Cosine &gt; 0.85</span>
+          </div>
+          <div className="data-row">
+            <span className="data-label">2. Relationship Distance</span>
+            <span className="data-value">Direct Link (1 Degree)</span>
+          </div>
+          <div className="data-row">
+            <span className="data-label">3. Time Decay</span>
+            <span className="data-value font-mono">Formula: e^(-λt)</span>
+          </div>
+        </div>
+        <div className="arch-desc">
+          Older info naturally loses importance over time. A major failure 4 months ago still matters heavily, but a minor delay from 4 years ago is ignored.
+        </div>
+      </div>
+
+      <div className="card">
+        <h3 className="section-label">
