@@ -1,17 +1,14 @@
-# ContextMind AI 
+# ContextMind AI
 
 ## Project Objective
-This project is an assignment exploring how AI agents should utilize context and memory to make autonomous business decisions. The goal is to mirror a human professional's ability to retain past interactions and apply them critically to current situations.
-
-Rather than generating a theoretical essay outlining memory concepts, this project delivers a React and Vite interactive prototype that practically demonstrates the proposed architecture in action.
+Yeh project ek assignment hai jo explore karta hai ki AI agents ko business decisions lene ke liye context aur memory ka upyog kaise karna chahiye. Iska mukhya uddeshya ek human professional ki tarah purani baaton ko yaad rakhne aur unhe current situations mein apply karne ki kshamta ko mirror karna hai.
 
 ## System Architecture Flow
-
-Here is the visual representation of how the ContextMind AI system processes a business event, manages memory throughout its lifecycle, and makes a final autonomous decision.
+Neeche diya gaya diagram dikhata hai ki kaise ContextMind AI system business events ko process karta hai aur memory manage karta hai.
 
 ```mermaid
 graph TD
-    %% Define Styles
+    %% Style Definitions
     classDef incoming fill:#f4f4f5,stroke:#09090b,stroke-width:2px;
     classDef memory fill:#eff6ff,stroke:#3b82f6,stroke-width:2px;
     classDef engine fill:#fffbeb,stroke:#f59e0b,stroke-width:2px;
@@ -20,48 +17,55 @@ graph TD
     classDef storage fill:#fef2f2,stroke:#ef4444,stroke-width:1px;
     
     %% Input Layer
-    Trigger("Incoming Business Task <br/> e.g., New Invoice, Support Ticket") ::: incoming
+    Trigger["Incoming Business Task <br/> e.g., New Invoice, Support Ticket"]
     
     %% Immediate Processing Layer
-    Trigger --> WM["Working Memory <br/> Immediate Context"] ::: memory
+    Trigger --> WM["Working Memory <br/> Immediate Context"]
     
     %% The Retrieval Core
-    WM --> Router{"Retrieval Engine"} ::: engine
+    WM --> Router{"Retrieval Engine"}
     
     %% Backing Memory sources
-    Router -.->|Queries| EM["Episodic Memory <br/> Past Interactions"] ::: memory
-    Router -.->|Queries| SG["Semantic Graph <br/> Entities & Relationships"] ::: memory
+    Router -.->|Queries| EM["Episodic Memory <br/> Past Interactions"]
+    Router -.->|Queries| SG["Semantic Graph <br/> Entities & Relationships"]
+    Router -.->|Queries| SV["Sentiment Vectors <br/> Emotional Context"]
     
-    %% How it weights data
-    EM --> Weighting["Rank Context"] ::: process
-    SG --> Weighting
+    %% Weighting Mechanism
+    EM & SG & SV --> Weighting["Rank Context"]
     
     %% Ranking Metrics
-    Weighting --> Metric1("Semantic Similarity")
-    Weighting --> Metric2("Direct Graph Link")
-    Weighting --> Metric3("Temporal Decay Penalty")
+    Weighting --> M1["Semantic Similarity"]
+    Weighting --> M2["Direct Graph Link"]
+    Weighting --> M3["Temporal Decay Penalty"]
     
-    Metric1 --> AI["Decision Synthesis Core"] ::: decision
-    Metric2 --> AI
-    Metric3 --> AI
-    WM --> AI
+    M1 & M2 & M3 & WM --> AI["Decision Synthesis Core"]
     
     %% Output
-    AI --> Action["Execute Action Override"] ::: decision
-    AI --> Explain["Generate Reasoning Citation"] ::: decision
+    AI --> Action["Execute Action Override"]
+    AI --> Explain["Generate Reasoning Citation"]
     
     %% Memory Lifecycle Sub-Flow
-    subgraph Memory Lifecycle [Data Storage Pipeline]
-    EM_Update("New Event Logged") --> Fresh[("Fresh Data: 0-30 Days <br/> Fast DB")] ::: storage
-    Fresh --> Maturing[("Maturing: 30-180 Days <br/> Vector DB")] ::: storage
-    Maturing --> Stale[("Archived: 180+ Days <br/> Cold Storage")] ::: storage
+    subgraph Lifecycle [Data Storage Pipeline]
+        EM_Update["New Event Logged"]
+        Fresh[("Fresh: 0-30 Days <br/> Fast DB")]
+        Maturing[("Maturing: 30-180 Days <br/> Vector DB")]
+        Stale[("Archived: 180+ Days <br/> Cold Storage")]
     end
     
-    %% Adding connection from Lifecycle to overall system
+    %% Feedback Loops
     Fresh -.-> EM
     Maturing -.-> EM
-```
+    Action -.-> EM_Update
 
+    %% Assigning Classes separately to avoid parse errors
+    class Trigger incoming
+    class WM,EM,SG,SV memory
+    class Router engine
+    class Weighting process
+    class AI,Action,Explain decision
+    class Fresh,Maturing,Stale storage
+
+```
 ## Core Architecture
 When a human processes a business event, like an invoice approval, they evaluate the immediate context, which involves the surface-level details of the current transaction. They also consider historical context, recalling previous experiences with the parties involved, and relational context, assessing the wider impact or risk associated with the entity.
 
