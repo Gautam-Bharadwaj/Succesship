@@ -1,10 +1,12 @@
 # ContextMind AI
 
 ## Project Objective
-Yeh project ek assignment hai jo explore karta hai ki AI agents ko business decisions lene ke liye context aur memory ka upyog kaise karna chahiye. Iska mukhya uddeshya ek human professional ki tarah purani baaton ko yaad rakhne aur unhe current situations mein apply karne ki kshamta ko mirror karna hai.
+This project is an assignment exploring how AI agents should utilize context and memory to make autonomous business decisions. The goal is to mirror a human professional's ability to retain past interactions and apply them critically to current situations.
+
+Rather than generating a theoretical essay, this project delivers a React and Vite interactive prototype that practically demonstrates the proposed architecture in action.
 
 ## System Architecture Flow
-Neeche diya gaya diagram dikhata hai ki kaise ContextMind AI system business events ko process karta hai aur memory manage karta hai.
+The following diagram illustrates how the ContextMind AI system processes business events, manages memory lifecycle, and executes autonomous decisions.
 
 ```mermaid
 graph TD
@@ -57,7 +59,7 @@ graph TD
     Maturing -.-> EM
     Action -.-> EM_Update
 
-    %% Assigning Classes separately to avoid parse errors
+    %% Assigning Classes
     class Trigger incoming
     class WM,EM,SG,SV memory
     class Router engine
