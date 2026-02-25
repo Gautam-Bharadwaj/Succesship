@@ -805,6 +805,13 @@ const SupportScenario = () => {
               The client's CRM history is stable and the issue does not trigger extreme severity thresholds (Risk Score {riskScore} is below {escalateThreshold}). The ticket will remain in the standard {priority.split(' ')[0]} queue, and the agent begins drafting a standard acknowledgement email.
             </div>
             <div className="tags">
+              <span className="tag info">Risk Index: {riskScore}</span>
+              <span className="tag info">Action: Follow SLA</span>
+              <span className="tag info">Drafting: Standard Reply</span>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
 
     <div className="grid-2">
