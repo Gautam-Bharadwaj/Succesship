@@ -619,6 +619,18 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
                  </div>
                  <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
                    <Terminal size={14} /> See Trace Log
+                </button>
+              </div>
+            </div>
+          )}
+
+          {showDebug && (
+            <div className="json-terminal animate-fade-in" data-theme={isDark ? 'dark' : 'light'}>
+               <div className="terminal-header"><Terminal size={14}/> SYSTEM TRACE LOG</div>
+               <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
