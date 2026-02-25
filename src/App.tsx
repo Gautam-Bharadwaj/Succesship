@@ -898,9 +898,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
                   <span className="memory-title">{mem.title}</span>
                   <span className="memory-time">{mem.time}</span>
                 </div>
-                <div className="memory-body">
-                  {mem.desc}
-                </div>
               </div>
             ))}
           </div>
