@@ -1056,4 +1056,49 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
       desc: "Senior roles statistically require 5+ years for success in this specific department.",
       type: "warning"
     });
+  }
+
+  let escalateThreshold = 50;
+  if (strictness === 'Strict') escalateThreshold = 30;
+  if (strictness === 'Relaxed') escalateThreshold = 70;
+
+  const isRejectNeeded = riskScore >= escalateThreshold;
+
+  const debugJSON = {
+    sys_req_id: `r-${Math.floor(Math.random() * 999999)}`,
+    agent_framework: "ContextMind ATS Filter V1.0",
+    variables: { candidate, role, prevCompany, yearsExp, strictness },
+    computed_risk: riskScore,
+    escalation_threshold: escalateThreshold,
+    knowledge_graph_links: memoryContexts.length,
+    vector_search_latency: "51ms",
+    final_directive: isRejectNeeded ? "FLAG_FOR_HR_REVIEW_OR_REJECT" : "PROCEED_TO_INTERVIEW"
+  }
+
+  if (isAnalyzing) {
+    return (
+      <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '50vh', gap: '24px' }}>
+        <Loader2 size={48} className="spin-animation" color="var(--status-target)" />
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ marginBottom: '8px' }}>ContextMind AI is analyzing...</h2>
+          <div className="processing-steps">
+            <span className="step-1">Parsing Resume Text...</span>
+            <span className="step-2">Querying Graph for Past Hires...</span>
+            <span className="step-3">Evaluating Flight-Risk...</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isCreating) {
+    return (
+      <div className="animate-fade-in">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+          <div>
+            <h1 className="page-title">Generate HR Context</h1>
+            <p className="page-description">
+              Simulate candidate screening. The AI looks at previous companies and cross-references historical employee churn.
+            </p>
+          </div>
 export default App;
