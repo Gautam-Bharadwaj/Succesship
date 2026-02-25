@@ -12,6 +12,10 @@ import {
   Activity,
   Inbox,
   Link2,
+  Cpu,
+  Loader2,
+  CheckCircle2,
+  SlidersHorizontal
 } from 'lucide-react';
 import './index.css';
 
