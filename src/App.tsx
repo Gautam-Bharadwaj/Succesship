@@ -376,6 +376,17 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
 
   const isHighRisk = riskScore >= threshold;
 
+  const debugJSON = {
+    sys_req_id: `r-${Math.floor(Math.random() * 999999)}`,
+    agent_framework: "ContextMind Invoice Proc V2.1",
+    variables: { vendor, amount, category, strictness },
+    computed_risk: riskScore,
+    threshold: threshold,
+    memory_hits: riskReasons.length,
+    vector_search_latency: "42ms",
+    final_directive: isHighRisk ? "HALT_MANUAL_QA" : "AUTO_APPROVE"
+  }
+
   if (isAnalyzing) {
     return (
       <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '50vh', gap: '24px' }}>
