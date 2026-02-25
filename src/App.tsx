@@ -801,14 +801,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
             <div className="grid-2">
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Customer / Company Name *</label>
-                <input
-                  autoFocus
-                  className="custom-input"
-                  placeholder="e.g. Acme Corp, Startup XYZ..."
-                  value={formCustomer}
-                  onChange={e => setFormCustomer(e.target.value)}
-                  required
-                />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Customer Tier</label>
