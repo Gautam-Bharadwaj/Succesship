@@ -15,6 +15,13 @@ import {
   Cpu,
   Loader2,
   CheckCircle2,
+  SlidersHorizontal,
+  Moon,
+  Sun,
+  Briefcase,
+  LineChart,
+  Terminal,
+  Clock
 } from 'lucide-react';
 import './index.css';
 
