@@ -27,6 +27,11 @@ import './index.css';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('arch');
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
 
   return (
     <div className="app-layout">
