@@ -1191,4 +1191,49 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
         </div>
 
         <div className="card">
+          <h3 className="section-label">
+            <Network size={16} /> Global Graph Knowledge
+          </h3>
+          <div className="memory-list">
+            {memoryContexts.map((mem, idx) => (
+               <div key={idx} className={`memory-item ${mem.type}`}>
+                <div className="memory-header">
+                  <span className="memory-title">{mem.title}</span>
+                  <span className="memory-time">{mem.time}</span>
+                </div>
+                <div className="memory-body">{mem.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid-full">
+          {isRejectNeeded ? (
+            <div className="decision-box danger-theme">
+              <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+                <Cpu size={16} /> AI Agent Decision
+              </h3>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                 <div>
+                    <div className="decision-action">
+                      <ShieldAlert size={28} /> Flagged: High Flight Risk
+                    </div>
+                    <div className="decision-reason">
+                      Historical graph nodes indicate a high probability of churn for candidates originating from their previous employer. Risk Score {riskScore} exceeds threshold {escalateThreshold}. Human HR partner alerted.
+                    </div>
+                    <div className="tags">
+                      <span className="tag danger">Risk Index: {riskScore}</span>
+                      <span className="tag warning">Action: Flag for Review</span>
+                      <span className="tag dark">Pattern: Employee Churn</span>
+                    </div>
+                 </div>
+                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                   <Terminal size={14} /> See Trace Log
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="decision-box" style={{ background: 'var(--status-target-bg)', color: '#1e3a8a', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+              <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+                <Cpu size={16} /> AI Agent Decision
 export default App;
