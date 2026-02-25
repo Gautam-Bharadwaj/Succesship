@@ -1011,4 +1011,49 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
     setFormCandidate(candidate);
     setRole(role);
     setFormPrev(prevCompany);
+    setFormYears(yearsExp);
+    setFormStrictness(strictness);
+    setIsCreating(true);
+    setShowDebug(false);
+  }
+
+  // AI Evaluation Logic for HR
+  let riskScore = 0;
+  const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success'}[] = [];
+
+  const prevLower = prevCompany.toLowerCase();
+  
+  if (prevLower.includes('rocket')) {
+    riskScore += 60;
+    memoryContexts.push({
+      title: "Flight Risk Pattern",
+      time: "Cross-referenced data",
+      desc: "Historically, 3 out of 4 previous hires from RocketStartup left within 6 months due to burnout.",
+      type: "danger"
+    });
+  } else if (prevLower.includes('google') || prevLower.includes('meta')) {
+    riskScore -= 20;
+    memoryContexts.push({
+      title: "Positive Meta-Pattern",
+      time: "Historical Average",
+      desc: "Top performers frequently originate from tier-1 companies. High retention average.",
+      type: "success"
+    });
+  } else {
+    memoryContexts.push({
+      title: "Standard Background",
+      time: "General",
+      desc: "Company background check passes with no anomalous turnover flags.",
+      type: "info"
+    });
+  }
+
+  if (role.includes('Senior') && yearsExp < 5) {
+    riskScore += 30;
+    memoryContexts.push({
+      title: "Experience Mismatch",
+      time: "System Logic",
+      desc: "Senior roles statistically require 5+ years for success in this specific department.",
+      type: "warning"
+    });
 export default App;
