@@ -661,8 +661,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
     if (formCustomer && formIssue) {
       setIsCreating(false);
       setIsAnalyzing(true);
-
-      // Simulate AI processing delay
       setTimeout(() => {
         setCustomer(formCustomer);
         setTier(formTier);
