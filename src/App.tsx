@@ -211,51 +211,6 @@ const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
 
 const AnalyticsDashboard = () => (
   <div className="animate-fade-in">
-    <h1 className="page-title">How ContextMind Works.</h1>
-    <p className="page-description">
-      We built a system that replicates how human professionals think. It balances what's happening right now with past experiences, so the AI can make smart decisions without getting overloaded with irrelevant data.
-    </p>
-
-    <div className="grid-2">
-      <div className="card grid-full">
-        <h3 className="section-label">
-          <Database size={16} /> Core Memory Types
-        </h3>
-        <div className="arch-grid">
-          <div className="arch-node">
-            <div className="arch-icon"><Inbox size={20} /></div>
-            <div className="arch-title">Working Memory</div>
-            <div className="arch-desc">What the agent is working on right now. (e.g. current invoice).</div>
-          </div>
-          <div className="arch-node">
-            <div className="arch-icon"><History size={20} /></div>
-            <div className="arch-title">Episodic Memory</div>
-            <div className="arch-desc">Records of past interactions and events over time.</div>
-          </div>
-          <div className="arch-node">
-            <div className="arch-icon"><Network size={20} /></div>
-            <div className="arch-title">Semantic Graph</div>
-            <div className="arch-desc">General facts and how different entities are connected.</div>
-          </div>
-          <div className="arch-node">
-            <div className="arch-icon"><Zap size={20} /></div>
-            <div className="arch-title">Retrieval Engine</div>
-            <div className="arch-desc">Finds relevant past info based on time and context.</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="card">
-        <h3 className="section-label">
-          <Link2 size={16} /> How We Rank Context
-        </h3>
-        <div className="data-group" style={{ marginBottom: '24px' }}>
-          <div className="data-row">
-            <span className="data-label">1. Semantic Similarity</span>
-            <span className="data-value">Vector Cosine &gt; 0.85</span>
-          </div>
-          <div className="data-row">
-            <span className="data-label">2. Relationship Distance</span>
             <span className="data-value">Direct Link (1 Degree)</span>
           </div>
           <div className="data-row">
