@@ -73,6 +73,13 @@ When a human processes a business event, like an invoice approval, they evaluate
 
 This dashboard visualizes how an AI system replicates this cognitive process. It categorizes data into Working Memory, Episodic Memory, and Semantic Graphs. It implements a Temporal Decay algorithm that ensures recent, highly impactful memories carry more weight than older, irrelevant ones. Furthermore, it runs two simulated scenarios involving Invoice Validation and Support Escalation to demonstrate how the agent intelligently overrides standard operational procedures based on retrieved historical context.
 
+###  New Feature: Custom Invoice Simulation 
+The prototype now includes a fully interactive "Generate Context" feature within the Invoice Scenario. You can now act as the user and submit custom invoices to the AI to observe how its risk engine reacts in real-time. Features include:
+- **Dynamic Risk Evaluation:** The AI analyzes Vendor Name, Amount, PO Match Status, Category, and Custom Notes to calculate a dynamic risk score.
+- **Adjustable AI Strictness:** Switch between `Relaxed`, `Normal`, and `Strict` modes to see how lower risk thresholds change the agent's behavior (e.g. flagging smaller amounts).
+- **Sentiment & Trigger Word Detection:** The AI scans custom notes for urgency or threats (e.g., "urgent", "asap") and penalizes the invoice score accordingly.
+- **Simulated Processing Pipeline:** Experience the agent's workflow with a simulated loading state that outlines its internal steps: fetching history, calculating semantic risk, and generating decisions. 
+
 ## Architectural Responses to Core Challenges
 
 The following section outlines the system design decisions addressing the specific technical challenges posed in the assignment.
