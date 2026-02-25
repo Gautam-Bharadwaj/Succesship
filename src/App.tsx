@@ -732,7 +732,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
     });
   }
 
-  // Tier Adjustment
   if (tier === 'Enterprise') {
     riskScore += 20;
     if (!customerLower.includes('techcorp')) {
