@@ -293,6 +293,51 @@ const InvoiceScenario = () => {
             Cancel
           </button>
         </div>
+
+        <div className="card" style={{ maxWidth: '800px', padding: '40px', margin: '0 auto' }}>
+          <form onSubmit={handleSend} className="data-group">
+            <div className="grid-2">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Vendor Name *</label>
+                <input
+                  autoFocus
+                  className="custom-input"
+                  placeholder="e.g. Acme Corp"
+                  value={formVendor}
+                  onChange={e => setFormVendor(e.target.value)}
+                  required
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Amount (₹) *</label>
+                <input
+                  className="custom-input"
+                  placeholder="e.g. 5,00,000"
+                  value={formAmount}
+                  onChange={e => setFormAmount(e.target.value.replace(/[^0-9,]/g, ''))}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid-2" style={{ marginTop: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">PO Match Status</label>
+                <select className="custom-input" value={formPoMatch} onChange={e => setFormPoMatch(e.target.value)}>
+                  <option>100% Match</option>
+                  <option>Partial Match</option>
+                  <option>No PO</option>
+                </select>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Category</label>
+                <select className="custom-input" value={formCategory} onChange={e => setFormCategory(e.target.value)}>
+                  <option>Hardware Components</option>
+                  <option>Software Subscriptions</option>
+                  <option>Consulting Services</option>
+                  <option>Office Supplies</option>
+                </select>
+              </div>
     </div>
 
     <div className="grid-2">
