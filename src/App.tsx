@@ -22,6 +22,7 @@ import {
   Terminal,
   Clock
 } from 'lucide-react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './index.css';
 
 const App = () => {
@@ -208,6 +209,15 @@ const ArchitectureView = () => {
   );
 };
 
+const chartData = [
+  { month: 'Sep', amount: 12.5 },
+  { month: 'Oct', amount: 15.2 },
+  { month: 'Nov', amount: 18.1 },
+  { month: 'Dec', amount: 14.8 },
+  { month: 'Jan', amount: 22.4 },
+  { month: 'Feb', amount: 25.4 },
+];
+
 const AnalyticsDashboard = () => (
   <div className="animate-fade-in">
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
@@ -234,6 +244,33 @@ const AnalyticsDashboard = () => (
         <h3 className="section-label" style={{ marginBottom: '8px' }}>Human Hours Saved</h3>
         <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--status-success)' }}>340+</div>
         <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Auto-approvals & Routing</div>
+      </div>
+    </div>
+
+    <div className="card grid-full" style={{ marginBottom: '32px' }}>
+      <h3 className="section-label">
+        <LineChart size={16} /> Cumulative Risk Prevented (Last 6 Months)
+      </h3>
+      <div style={{ width: '100%', height: '300px', marginTop: '24px' }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+            <defs>
+              <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="var(--status-target)" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="var(--status-target)" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="3 3" strokeOpacity={0.1} vertical={false} />
+            <XAxis dataKey="month" stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} />
+            <YAxis stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(val) => `₹${val}M`} />
+            <Tooltip
+              contentStyle={{ backgroundColor: 'var(--bg)', borderColor: 'var(--border)', borderRadius: '8px', color: 'var(--text-main)' }}
+              itemStyle={{ color: 'var(--text-main)' }}
+              formatter={(value) => [`₹${value}M`, 'Risk Prevented']}
+            />
+            <Area type="monotone" dataKey="amount" stroke="var(--status-target)" strokeWidth={3} fillOpacity={1} fill="url(#colorAmount)" />
+          </AreaChart>
+        </ResponsiveContainer>
       </div>
     </div>
 
