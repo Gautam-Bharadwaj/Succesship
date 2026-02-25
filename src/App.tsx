@@ -748,10 +748,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
     riskScore += 15;
   }
 
-  // Define thresholds based on strictness
-  let escalateThreshold = 60; // Base: if >= 60, escalate to T3 immediately
-  if (strictness === 'Strict') escalateThreshold = 40; // Overly cautious, escalates almost everything
-  if (strictness === 'Relaxed') escalateThreshold = 80; // Only escalates massive fires
 
   const isEscalationNeeded = riskScore >= escalateThreshold;
 
