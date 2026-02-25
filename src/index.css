@@ -464,4 +464,49 @@ h3.section-label {
   border: none;
   border-radius: 6px;
   padding: 6px 14px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.primary-button-sm:hover {
+  opacity: 0.9;
+}
+
+.spin-animation {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.processing-steps {
+  position: relative;
+  height: 24px;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.processing-steps span {
+  display: block;
+  opacity: 0;
+  animation: stepFade 2.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.processing-steps .step-1 {
 }
