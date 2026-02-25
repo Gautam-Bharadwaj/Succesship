@@ -88,9 +88,6 @@ const App = () => {
       </nav>
 
       <main className="main-content">
-        {activeTab === 'arch' && <ArchitectureView />}
-        {activeTab === 'invoice' && <InvoiceScenario />}
-        {activeTab === 'support' && <SupportScenario />}
       </main>
     </div>
   );
