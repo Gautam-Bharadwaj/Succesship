@@ -840,7 +840,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
             </div>
 
             <button type="submit" className="primary-button" style={{ marginTop: '32px' }}>
-              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }} />
               Simulate Ticket Handling
             </button>
           </form>
