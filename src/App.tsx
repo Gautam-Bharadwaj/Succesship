@@ -490,6 +490,51 @@ const InvoiceScenario = () => {
 };
 
 // Scenario 2
+const SupportScenario = () => {
+  const [isCreating, setIsCreating] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  // Active state
+  const [customer, setCustomer] = useState('TechCorp Inc.');
+  const [tier, setTier] = useState('Enterprise');
+  const [issue, setIssue] = useState('API 503 Outage');
+  const [priority, setPriority] = useState('Tier 2 (SLA: 4.0 Hours)');
+  const [strictness, setStrictness] = useState('Normal');
+
+  // Form state
+  const [formCustomer, setFormCustomer] = useState('');
+  const [formTier, setFormTier] = useState('Enterprise');
+  const [formIssue, setFormIssue] = useState('');
+  const [formPriority, setFormPriority] = useState('Tier 2 (SLA: 4.0 Hours)');
+  const [formStrictness, setFormStrictness] = useState('Normal');
+
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formCustomer && formIssue) {
+      setIsCreating(false);
+      setIsAnalyzing(true);
+
+      // Simulate AI processing delay
+      setTimeout(() => {
+        setCustomer(formCustomer);
+        setTier(formTier);
+        setIssue(formIssue);
+        setPriority(formPriority);
+        setStrictness(formStrictness);
+
+        // Form states can be kept or cleared
+        setFormCustomer('');
+        setFormIssue('');
+        setIsAnalyzing(false);
+      }, 2500);
+    }
+  };
+
+  const handleOpenNew = () => {
+    setFormCustomer(customer);
+    setFormTier(tier);
+    setFormIssue(issue);
+    setFormPriority(priority);
     </div>
 
     <div className="grid-2">
