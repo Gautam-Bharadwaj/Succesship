@@ -297,8 +297,6 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
     if (formVendor && formAmount) {
       setIsCreating(false);
       setIsAnalyzing(true);
-
-      // Simulate AI processing delay
       setTimeout(() => {
         setVendor(formVendor);
         setAmount(formAmount);
