@@ -269,7 +269,6 @@ const AnalyticsDashboard = () => (
 );
 
 // Scenario 1
-const InvoiceScenario = () => {
   const [isCreating, setIsCreating] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
