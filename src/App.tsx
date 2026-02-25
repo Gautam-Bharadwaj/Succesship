@@ -813,51 +813,6 @@ const SupportScenario = () => {
         )}
       </div>
     </div>
-
-    <div className="grid-2">
-      <div className="card">
-        <h3 className="section-label">
-          <Inbox size={16} /> Current Context (Working Memory)
-        </h3>
-        <div className="data-group">
-          <div className="data-row">
-            <span className="data-label">Customer</span>
-            <span className="data-value">TechCorp Inc. (Enterprise)</span>
-          </div>
-          <div className="data-row">
-            <span className="data-label">Issue</span>
-            <span className="data-value">API 503 Outage</span>
-          </div>
-          <div className="data-row">
-            <span className="data-label">Time Remaining (SLA)</span>
-            <span className="data-value">4.0 Hours</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="card">
-        <h3 className="section-label">
-          <Network size={16} /> Customer History (CRM)
-        </h3>
-        <div className="memory-list">
-          <div className="memory-item warning">
-            <div className="memory-header">
-              <span className="memory-title">Contract Renewal</span>
-              <span className="memory-time">2 Months Ago</span>
-            </div>
-            <div className="memory-body">
-              Renewed for ₹50L, but they were seriously looking at our competitors during the talks.
-            </div>
-          </div>
-          <div className="memory-item danger">
-            <div className="memory-header">
-              <span className="memory-title">Past Outage</span>
-              <span className="memory-time">6 Months Ago</span>
-            </div>
-            <div className="memory-body">
-              They had the exact same 503 error before. It took us 48 hours to fix and they were extremely frustrated.
-            </div>
-          </div>
           <div className="memory-item info">
             <div className="memory-header">
               <span className="memory-title">Communication Preference</span>
