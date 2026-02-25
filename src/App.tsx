@@ -307,8 +307,6 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
         setNotes(formNotes);
         setStrictness(formStrictness);
         setInvoiceId(`INV-${Math.floor(Math.random() * 90000) + 10000}`);
-
-        // Form states can be kept or cleared
         setFormVendor('');
         setFormAmount('');
         setFormNotes('');
