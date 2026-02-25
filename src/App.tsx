@@ -816,13 +816,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
             <div className="grid-2" style={{ marginTop: '16px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Issue Summary *</label>
-                <input
-                  className="custom-input"
-                  placeholder="e.g. API 500 Error, Password Reset..."
-                  value={formIssue}
-                  onChange={e => setFormIssue(e.target.value)}
-                  required
-                />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Current Queue Priority</label>
