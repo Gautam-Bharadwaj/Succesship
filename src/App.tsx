@@ -760,6 +760,51 @@ const SupportScenario = () => {
         <div className="card">
           <h3 className="section-label">
             <Network size={16} /> Agent CRM Retrieval
+          </h3>
+          <div className="memory-list">
+            {memoryContexts.map((mem, idx) => (
+              <div key={idx} className={`memory-item ${mem.type}`}>
+                <div className="memory-header">
+                  <span className="memory-title">{mem.title}</span>
+                  <span className="memory-time">{mem.time}</span>
+                </div>
+                <div className="memory-body">
+                  {mem.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {isEscalationNeeded ? (
+          <div className="decision-box danger-theme grid-full">
+            <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+              <Cpu size={16} /> AI Agent Decision
+            </h3>
+            <div className="decision-action">
+              <AlertTriangle size={28} /> Emergency: Bypass Queue, Escalate to Tier 3
+            </div>
+            <div className="decision-reason">
+              Despite standard SLAs, the combination of customer tier and negative historical metadata generated a risk score of {riskScore} (Threshold: {escalateThreshold}). The agent bypasses the standard {priority.split(' ')[0]} queue and alerts engineering directly to prevent churn.
+            </div>
+            <div className="tags">
+              <span className="tag danger">Risk Index: {riskScore}</span>
+              <span className="tag warning">Action: Ignored Standard SLA</span>
+              <span className="tag dark">Focus: Churn Prevention</span>
+            </div>
+          </div>
+        ) : (
+          <div className="decision-box grid-full" style={{ background: 'var(--status-target-bg)', color: '#1e3a8a', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+            <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+              <Cpu size={16} /> AI Agent Decision
+            </h3>
+            <div className="decision-action" style={{ color: '#1d4ed8' }}>
+              <CheckCircle2 size={28} /> Handle Normally in Queue
+            </div>
+            <div className="decision-reason" style={{ color: '#1e40af' }}>
+              The client's CRM history is stable and the issue does not trigger extreme severity thresholds (Risk Score {riskScore} is below {escalateThreshold}). The ticket will remain in the standard {priority.split(' ')[0]} queue, and the agent begins drafting a standard acknowledgement email.
+            </div>
+            <div className="tags">
     </div>
 
     <div className="grid-2">
