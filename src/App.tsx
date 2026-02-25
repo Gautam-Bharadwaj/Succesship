@@ -689,7 +689,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
 
   // AI Evaluation Logic for Support Context
   let riskScore = 0;
-  const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success' }[] = [];
 
   const customerLower = customer.toLowerCase();
 
