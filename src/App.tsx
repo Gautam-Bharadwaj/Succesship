@@ -297,6 +297,8 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
     if (formVendor && formAmount) {
       setIsCreating(false);
       setIsAnalyzing(true);
+      setShowDebug(false);
+
       setTimeout(() => {
         setVendor(formVendor);
         setAmount(formAmount);
