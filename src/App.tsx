@@ -490,16 +490,6 @@ const InvoiceScenario = () => {
 };
 
 // Scenario 2
-const SupportScenario = () => (
-  <div className="animate-fade-in">
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
-      <div>
-        <h1 className="page-title">Support Ticket Escalation</h1>
-        <p className="page-description" style={{ marginBottom: 0 }}>
-          TechCorp Inc. just reported a 503 API error. Priority is currently Tier 2.
-        </p>
-      </div>
-      <div className="status-badge active">Live Demo</div>
     </div>
 
     <div className="grid-2">
