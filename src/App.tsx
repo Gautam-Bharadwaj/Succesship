@@ -256,6 +256,12 @@ const AnalyticsDashboard = () => (
         <div className="data-row">
           <span className="data-label">HR Screening</span>
           <span className="data-value">Flagged candidate ID #0942 (Flight-Risk pattern match)</span>
+          <span className="status-badge" style={{ background: 'var(--status-warning-bg)', color: 'var(--status-warning)' }}>Flagged</span>
+        </div>
+        <div className="data-row">
+          <span className="data-label">Invoice Processing</span>
+          <span className="data-value">Halted random ₹1M invoice from unseen vendor</span>
+          <span className="status-badge" style={{ background: 'var(--status-danger-bg)', color: 'var(--status-danger)' }}>Blocked</span>
         </div>
       </div>
     </div>
