@@ -831,6 +831,8 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
               <label className="data-label">AI Panic Level</label>
               <div style={{ display: 'flex', gap: '12px' }}>
                 {['Relaxed', 'Normal', 'Strict'].map(level => (
+                  <button key={level} type="button" className={`tab-button ${formStrictness === level ? 'active' : ''}`}
+                    onClick={() => setFormStrictness(level)} style={{ flex: 1, justifyContent: 'center', border: '1px solid var(--border)' }}>
                     {level}
                   </button>
                 ))}
