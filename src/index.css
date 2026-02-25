@@ -311,6 +311,8 @@ h3.section-label {
 }
 
 .decision-box.danger-theme .decision-reason {
+  color: var(--status-danger);
+  opacity: 0.9;
 }
 
 .decision-action {
