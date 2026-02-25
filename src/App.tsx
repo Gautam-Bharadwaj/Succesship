@@ -338,6 +338,51 @@ const InvoiceScenario = () => {
                   <option>Office Supplies</option>
                 </select>
               </div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px' }}>
+              <label className="data-label">Context / Notes</label>
+              <textarea
+                className="custom-input"
+                style={{ minHeight: '80px', resize: 'vertical' }}
+                placeholder="e.g. Urgent payment, vendor threatening to stop delivery"
+                value={formNotes}
+                onChange={e => setFormNotes(e.target.value)}
+              />
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px' }}>
+              <label className="data-label" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <SlidersHorizontal size={16} /> AI Strictness Level
+              </label>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                {['Relaxed', 'Normal', 'Strict'].map(level => (
+                  <button
+                    key={level}
+                    type="button"
+                    className={`tab-button ${formStrictness === level ? 'active' : ''}`}
+                    onClick={() => setFormStrictness(level)}
+                    style={{ flex: 1, justifyContent: 'center', border: '1px solid var(--border)' }}
+                  >
+                    {level}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button type="submit" className="primary-button" style={{ marginTop: '32px' }}>
+              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }} />
+              Send to ContextMind AI
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="animate-fade-in">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
     </div>
 
     <div className="grid-2">
