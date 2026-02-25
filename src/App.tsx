@@ -661,6 +661,8 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
     if (formCustomer && formIssue) {
       setIsCreating(false);
       setIsAnalyzing(true);
+      setShowDebug(false);
+
       setTimeout(() => {
         setCustomer(formCustomer);
         setTier(formTier);
