@@ -754,6 +754,17 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
 
   const isEscalationNeeded = riskScore >= escalateThreshold;
 
+  const debugJSON = {
+    sys_req_id: `r-${Math.floor(Math.random() * 999999)}`,
+    agent_framework: "ContextMind Support Router V2.1",
+    variables: { customer, tier, issue, priority, strictness },
+    computed_risk: riskScore,
+    escalation_threshold: escalateThreshold,
+    crm_db_hits: memoryContexts.length,
+    vector_search_latency: "38ms",
+    final_directive: isEscalationNeeded ? "BYPASS_QUEUE_SEND_TIER_3" : "HANDLE_IN_NORMAL_QUEUE"
+  }
+
   if (isAnalyzing) {
     return (
       <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '50vh', gap: '24px' }}>
