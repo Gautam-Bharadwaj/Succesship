@@ -640,6 +640,7 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
 const SupportScenario = ({ isDark }: { isDark: boolean }) => {
   const [isCreating, setIsCreating] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [showDebug, setShowDebug] = useState(false);
 
   // Active state
   const [customer, setCustomer] = useState('TechCorp Inc.');
