@@ -347,6 +347,8 @@ h3.section-label {
 }
 
 .tag.dark {
+  background: rgba(120, 120, 120, 0.2);
+  color: var(--text-main);
 }
 
 .tag.danger {
