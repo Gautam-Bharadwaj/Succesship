@@ -486,6 +486,8 @@ const InvoiceScenario = () => {
         )}
       </div>
     </div>
+  );
+};
 
 // Scenario 2
 const SupportScenario = () => (
