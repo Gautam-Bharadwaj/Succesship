@@ -822,9 +822,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Current Queue Priority</label>
                 <select className="custom-input" value={formPriority} onChange={e => setFormPriority(e.target.value)}>
-                  <option>Tier 1 (SLA: 24.0 Hours)</option>
-                  <option>Tier 2 (SLA: 4.0 Hours)</option>
-                  <option>Tier 3 (SLA: 1.0 Hour)</option>
                 </select>
               </div>
             </div>
