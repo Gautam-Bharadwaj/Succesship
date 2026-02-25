@@ -535,6 +535,51 @@ const SupportScenario = () => {
     setFormTier(tier);
     setFormIssue(issue);
     setFormPriority(priority);
+    setFormStrictness(strictness);
+    setIsCreating(true);
+  }
+
+  // AI Evaluation Logic for Support Context
+  let riskScore = 0;
+  const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success' }[] = [];
+
+  const customerLower = customer.toLowerCase();
+
+  if (customerLower.includes('techcorp')) {
+    riskScore += 50;
+    memoryContexts.push({
+      title: "Past Outage",
+      time: "6 Months Ago",
+      desc: "They had the exact same 503 error before. It took us 48 hours to fix and they were extremely frustrated.",
+      type: "danger"
+    });
+    memoryContexts.push({
+      title: "Contract Renewal",
+      time: "2 Months Ago",
+      desc: "Renewed for ₹50L, but they were seriously looking at our competitors during the talks.",
+      type: "warning"
+    });
+  } else if (customerLower.includes('startup')) {
+    riskScore += 10;
+    memoryContexts.push({
+      title: "Onboarding completed",
+      time: "1 Month Ago",
+      desc: "Customer just finished onboarding. They are currently testing non-critical endpoints.",
+      type: "info"
+    });
+  } else if (customerLower.includes('cancel')) {
+    riskScore += 80;
+    memoryContexts.push({
+      title: "Cancellation Risk",
+      time: "1 Week Ago",
+      desc: "Account manager noted they are doing an active trial with competitor XYZ.",
+      type: "danger"
+    });
+  } else {
+    memoryContexts.push({
+      title: "General Interaction",
+      time: "Historical",
+      desc: "Standard monthly interactions. Customer health score is stable at 90/100.",
     </div>
 
     <div className="grid-2">
