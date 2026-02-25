@@ -420,3 +420,48 @@ h3.section-label {
 .animate-fade-in {
   animation: fadeIn 0.4s ease forwards;
 }
+
+/* Custom Invoice Form Styles */
+.custom-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.custom-input:focus {
+  border-color: var(--status-target);
+  box-shadow: 0 0 0 3px var(--status-target-bg);
+}
+
+.primary-button {
+  background: var(--text-main);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+}
+
+.primary-button:hover {
+  opacity: 0.9;
+}
+
+.primary-button-sm {
+  background: var(--text-main);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+}
