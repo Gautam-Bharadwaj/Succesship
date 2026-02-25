@@ -99,7 +99,6 @@ const App = () => {
 };
 
 // Overview of how the system works
-const ArchitectureView = () => (
   <div className="animate-fade-in">
     <h1 className="page-title">How ContextMind Works.</h1>
     <p className="page-description">
