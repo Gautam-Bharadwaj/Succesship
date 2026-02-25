@@ -715,6 +715,51 @@ const SupportScenario = () => {
             </button>
           </form>
         </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="animate-fade-in">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+        <div>
+          <h1 className="page-title">Support Ticket Analysis</h1>
+          <p className="page-description" style={{ marginBottom: 0 }}>
+            {customer} ({tier}) reported: {issue}.
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <div className="status-badge active" style={{ display: 'flex', gap: '6px' }}>
+            <SlidersHorizontal size={12} /> {strictness} Mode
+          </div>
+          <button className="primary-button-sm" onClick={handleOpenNew}>+ New Ticket</button>
+        </div>
+      </div>
+
+      <div className="grid-2">
+        <div className="card">
+          <h3 className="section-label">
+            <Inbox size={16} /> Current Context (Working Memory)
+          </h3>
+          <div className="data-group">
+            <div className="data-row">
+              <span className="data-label">Customer</span>
+              <span className="data-value">{customer} ({tier})</span>
+            </div>
+            <div className="data-row">
+              <span className="data-label">Issue</span>
+              <span className="data-value">{issue}</span>
+            </div>
+            <div className="data-row">
+              <span className="data-label">Ticket Queue</span>
+              <span className="data-value">{priority}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <h3 className="section-label">
+            <Network size={16} /> Agent CRM Retrieval
     </div>
 
     <div className="grid-2">
