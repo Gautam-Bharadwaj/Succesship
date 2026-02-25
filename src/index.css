@@ -368,6 +368,7 @@ h3.section-label {
 
 .tag.success {
   background: rgba(16, 185, 129, 0.1);
+  color: var(--status-success);
 }
 
 /* Arch Nodes */
