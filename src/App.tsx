@@ -88,6 +88,11 @@ const App = () => {
       </nav>
 
       <main className="main-content">
+        {activeTab === 'arch' && <ArchitectureView isDark={isDark} />}
+        {activeTab === 'analytics' && <AnalyticsDashboard />}
+        {activeTab === 'invoice' && <InvoiceScenario isDark={isDark} />}
+        {activeTab === 'support' && <SupportScenario isDark={isDark} />}
+        {activeTab === 'hr' && <HRScenario isDark={isDark} />}
       </main>
     </div>
   );
