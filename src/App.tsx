@@ -428,6 +428,51 @@ const InvoiceScenario = () => {
               </div>
             )}
           </div>
+        </div>
+
+        <div className="card">
+          <h3 className="section-label">
+            <History size={16} /> Memory Engine Extraction
+          </h3>
+          <div className="memory-list">
+            {riskReasons.map((reason, idx) => (
+              <div key={idx} className={`memory-item ${reason.type}`}>
+                <div className="memory-header">
+                  <span className="memory-title">
+                    {reason.type === 'danger' ? 'Critical Context' : (reason.type === 'warning' ? 'Notable Context' : 'Positive Context')}
+                  </span>
+                </div>
+                <div className="memory-body">
+                  {reason.text}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {isHighRisk ? (
+          <div className="decision-box danger-theme grid-full">
+            <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+              <Cpu size={16} /> AI Agent Decision
+            </h3>
+            <div className="decision-action">
+              <ShieldAlert size={28} /> Action Blocked: Flagged for QA
+            </div>
+            <div className="decision-reason">
+              Based on the combined memory graph and working context, the risk score ({riskScore}) exceeds the threshold ({threshold} in {strictness} setting). The agent has halted normal processing and escalated to the risk team.
+            </div>
+            <div className="tags">
+              <span className="tag danger">Risk Score: {riskScore} / 100</span>
+              <span className="tag warning">Threshold: {threshold}</span>
+              <span className="tag dark">Pattern Match: High</span>
+            </div>
+          </div>
+        ) : (
+          <div className="decision-box grid-full" style={{ background: 'var(--status-success-bg)', color: '#047857', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+            <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+              <Cpu size={16} /> AI Agent Decision
+            </h3>
+            <div className="decision-action" style={{ color: '#047857' }}>
     </div>
 
     <div className="grid-2">
