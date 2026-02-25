@@ -272,6 +272,7 @@ const AnalyticsDashboard = () => (
 const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
   const [isCreating, setIsCreating] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [showDebug, setShowDebug] = useState(false);
 
   // Active state
   const [vendor, setVendor] = useState('Supplier XYZ');
