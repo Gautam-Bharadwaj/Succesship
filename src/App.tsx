@@ -248,6 +248,51 @@ const InvoiceScenario = () => {
   if (category === 'Hardware Components') {
     riskScore += 10;
   } else if (category === 'Software Subscriptions') {
+    riskScore -= 10;
+  }
+
+  const notesLower = notes.toLowerCase();
+  if (notesLower.includes('urgent') || notesLower.includes('asap') || notesLower.includes('threat')) {
+    riskScore += 30;
+    riskReasons.push({ text: "Anomalous urgency or threatening language detected (+30)", type: 'danger' });
+  }
+
+  let threshold = 50;
+  if (strictness === 'Strict') threshold = 30;
+  if (strictness === 'Relaxed') threshold = 70;
+
+  const isHighRisk = riskScore >= threshold;
+
+  if (isAnalyzing) {
+    return (
+      <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '50vh', gap: '24px' }}>
+        <Loader2 size={48} className="spin-animation" color="var(--status-target)" />
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ marginBottom: '8px' }}>ContextMind AI is analyzing...</h2>
+          <div className="processing-steps">
+            <span className="step-1">Fetching Vendor History...</span>
+            <span className="step-2">Calculating Semantic Risk...</span>
+            <span className="step-3">Generating Decision...</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isCreating) {
+    return (
+      <div className="animate-fade-in">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+          <div>
+            <h1 className="page-title">Generate Context</h1>
+            <p className="page-description" style={{ marginBottom: 0 }}>
+              Build a custom scenario to see how the AI evaluates it.
+            </p>
+          </div>
+          <button className="tab-button" onClick={() => setIsCreating(false)}>
+            Cancel
+          </button>
+        </div>
     </div>
 
     <div className="grid-2">
