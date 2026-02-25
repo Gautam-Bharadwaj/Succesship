@@ -51,6 +51,13 @@ const App = () => {
             Architecture
           </button>
           <button
+            className={`tab-button ${activeTab === 'analytics' ? 'active' : ''}`}
+            onClick={() => setActiveTab('analytics')}
+          >
+            <div className="icon"><LineChart size={16} /></div>
+            AI ROI Metrics
+          </button>
+          <button
             className={`tab-button ${activeTab === 'invoice' ? 'active' : ''}`}
             onClick={() => setActiveTab('invoice')}
           >
