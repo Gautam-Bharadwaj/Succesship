@@ -144,6 +144,51 @@ const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
               <Clock size={16} /> "Time Machine" Decay Simulator
             </h3>
             <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>T + {timeForward} Months</span>
+          </div>
+          <p className="arch-desc" style={{ marginBottom: '16px' }}>
+            Slide to see how an event's influence decays over time algebraically. 
+            Formula: <code>Weight = e^(-λt)</code>
+          </p>
+
+          <input 
+            type="range" 
+            min="0" max="24" 
+            value={timeForward} 
+            onChange={(e) => setTimeForward(parseInt(e.target.value))} 
+            style={{ marginBottom: '24px' }}
+          />
+
+          <div className="data-group">
+            <div className={`memory-item ${timeForward < 3 ? 'danger' : (timeForward < 9 ? 'warning' : '')}`} style={{ opacity: Math.max(0.3, 1 - (timeForward * 0.05)) }}>
+              <div className="memory-header">
+                <span className="memory-title">Major System Outage</span>
+                <span className="memory-time">{timeForward === 0 ? 'Just Now' : `${timeForward} Months Ago`}</span>
+              </div>
+              <div className="memory-body">
+                {timeForward < 3 ? "URGENT FLAG: Client is extremely frustrated. All SLAs are currently active and being heavily monitored." : 
+                 timeForward < 9 ? "Noted pattern of instability recently. Monitor closely during renewals." : 
+                 "Archived event. Client stabilized long ago. Context is ignored by AI to save tokens."}
+              </div>
+              <div style={{ marginTop: '8px', fontSize: '0.8rem', fontFamily: 'monospace', color: 'var(--text-main)' }}>
+                Computed Context Weight: {(Math.exp(-0.15 * timeForward) * 100).toFixed(1)}%
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="card">
+          <h3 className="section-label">
+            <Activity size={16} /> Memory Lifecycle
+          </h3>
+          <div className="memory-list">
+            <div className="memory-item info">
+              <div className="memory-header">
+                <span className="memory-title">Fresh</span>
+                <span className="memory-time">0-30 Days</span>
+              </div>
+              <div className="memory-body">High priority. Loaded directly for the agent to consider.</div>
+            </div>
+            <div className="memory-item warning">
   <div className="animate-fade-in">
     <h1 className="page-title">How ContextMind Works.</h1>
     <p className="page-description">
