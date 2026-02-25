@@ -269,6 +269,7 @@ const AnalyticsDashboard = () => (
 );
 
 // Scenario 1
+const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
   const [isCreating, setIsCreating] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
