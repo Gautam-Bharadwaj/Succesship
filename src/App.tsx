@@ -893,7 +893,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
           </h3>
           <div className="memory-list">
             {memoryContexts.map((mem, idx) => (
-              <div key={idx} className={`memory-item ${mem.type}`}>
                 <div className="memory-header">
                   <span className="memory-title">{mem.title}</span>
                   <span className="memory-time">{mem.time}</span>
