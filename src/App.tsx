@@ -748,6 +748,9 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
     riskScore += 15;
   }
 
+  let escalateThreshold = 60;
+  if (strictness === 'Strict') escalateThreshold = 40;
+  if (strictness === 'Relaxed') escalateThreshold = 80;
 
   const isEscalationNeeded = riskScore >= escalateThreshold;
 
