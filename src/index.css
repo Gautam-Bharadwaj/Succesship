@@ -193,7 +193,6 @@ h3.section-label {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 32px;
-  transition: border-color 0.2s ease;
 }
 
 .card:hover {
