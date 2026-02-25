@@ -158,6 +158,51 @@ const ArchitectureView = () => (
 );
 
 // Scenario 1
+const InvoiceScenario = () => {
+  const [isCreating, setIsCreating] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  // Active state
+  const [vendor, setVendor] = useState('Supplier XYZ');
+  const [amount, setAmount] = useState('2,50,000');
+  const [invoiceId, setInvoiceId] = useState('INV-88301');
+  const [poMatch, setPoMatch] = useState('100% Match');
+  const [category, setCategory] = useState('Hardware Components');
+  const [notes, setNotes] = useState('Standard monthly restock.');
+  const [strictness, setStrictness] = useState('Normal');
+
+  // Form state
+  const [formVendor, setFormVendor] = useState('');
+  const [formAmount, setFormAmount] = useState('');
+  const [formPoMatch, setFormPoMatch] = useState('100% Match');
+  const [formCategory, setFormCategory] = useState('Hardware Components');
+  const [formNotes, setFormNotes] = useState('');
+  const [formStrictness, setFormStrictness] = useState('Normal');
+
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formVendor && formAmount) {
+      setIsCreating(false);
+      setIsAnalyzing(true);
+
+      // Simulate AI processing delay
+      setTimeout(() => {
+        setVendor(formVendor);
+        setAmount(formAmount);
+        setPoMatch(formPoMatch);
+        setCategory(formCategory);
+        setNotes(formNotes);
+        setStrictness(formStrictness);
+        setInvoiceId(`INV-${Math.floor(Math.random() * 90000) + 10000}`);
+
+        // Form states can be kept or cleared
+        setFormVendor('');
+        setFormAmount('');
+        setFormNotes('');
+        setIsAnalyzing(false);
+      }, 2500);
+    }
+  };
     </div>
 
     <div className="grid-2">
