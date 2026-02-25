@@ -966,4 +966,49 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
   );
 };
 
+// Scenario 3 HR Hiring
+const HRScenario = ({ isDark }: { isDark: boolean }) => {
+  const [isCreating, setIsCreating] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [showDebug, setShowDebug] = useState(false);
+
+  // Active state
+  const [candidate, setCandidate] = useState('Jane Doe');
+  const [role, setRole] = useState('Senior Engineer');
+  const [prevCompany, setPrevCompany] = useState('RocketStartup');
+  const [yearsExp, setYearsExp] = useState(4);
+  const [strictness, setStrictness] = useState('Normal');
+
+  // Form state
+  const [formCandidate, setFormCandidate] = useState('');
+  const [formRole, setFormRole] = useState('Senior Engineer');
+  const [formPrev, setFormPrev] = useState('');
+  const [formYears, setFormYears] = useState(4);
+  const [formStrictness, setFormStrictness] = useState('Normal');
+
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (formCandidate && formPrev) {
+      setIsCreating(false);
+      setIsAnalyzing(true);
+      setShowDebug(false);
+
+      setTimeout(() => {
+        setCandidate(formCandidate);
+        setRole(formRole);
+        setPrevCompany(formPrev);
+        setYearsExp(formYears);
+        setStrictness(formStrictness);
+
+        setFormCandidate('');
+        setFormPrev('');
+        setIsAnalyzing(false);
+      }, 2500);
+    }
+  };
+
+  const handleOpenNew = () => {
+    setFormCandidate(candidate);
+    setRole(role);
+    setFormPrev(prevCompany);
 export default App;
