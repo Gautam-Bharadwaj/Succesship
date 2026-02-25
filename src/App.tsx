@@ -211,6 +211,51 @@ const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
 
 const AnalyticsDashboard = () => (
   <div className="animate-fade-in">
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+      <div>
+        <h1 className="page-title">AI Business Impact</h1>
+        <p className="page-description" style={{ marginBottom: 0 }}>
+          Real-time metrics demonstrating the ROI of ContextMind AI over the last 30 days.
+        </p>
+      </div>
+    </div>
+
+    <div className="grid-3" style={{ marginBottom: '32px' }}>
+      <div className="card" style={{ padding: '24px' }}>
+        <h3 className="section-label" style={{ marginBottom: '8px' }}>Events Processed</h3>
+        <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--status-target)' }}>4,521</div>
+        <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>+12% from last month</div>
+      </div>
+      <div className="card" style={{ padding: '24px' }}>
+        <h3 className="section-label" style={{ marginBottom: '8px' }}>Risk Prevented (Est.)</h3>
+        <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--status-danger)' }}>₹25.4M</div>
+        <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>18 Critical Escalations Caught</div>
+      </div>
+      <div className="card" style={{ padding: '24px' }}>
+        <h3 className="section-label" style={{ marginBottom: '8px' }}>Human Hours Saved</h3>
+        <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--status-success)' }}>340+</div>
+        <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Auto-approvals & Routing</div>
+      </div>
+    </div>
+
+    <div className="card grid-full">
+      <h3 className="section-label">
+        <Activity size={16} /> Recent Autonomous Actions
+      </h3>
+      <div className="data-group">
+        <div className="data-row">
+          <span className="data-label">Support Pipeline</span>
+          <span className="data-value">Escalated "WidgetCorp" to Tier 3 (Churn Risk 80%)</span>
+          <span className="status-badge" style={{ background: 'var(--status-danger-bg)', color: 'var(--status-danger)' }}>Intervened</span>
+        </div>
+        <div className="data-row">
+          <span className="data-label">Invoice Processing</span>
+          <span className="data-value">Auto-approved ₹45,000 for AWS Hosting</span>
+          <span className="status-badge" style={{ background: 'var(--status-success-bg)', color: 'var(--status-success)' }}>Auto-Approved</span>
+        </div>
+        <div className="data-row">
+          <span className="data-label">HR Screening</span>
+          <span className="data-value">Flagged candidate ID #0942 (Flight-Risk pattern match)</span>
         </div>
       </div>
     </div>
