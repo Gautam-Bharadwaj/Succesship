@@ -670,7 +670,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
         setPriority(formPriority);
         setStrictness(formStrictness);
 
-        // Form states can be kept or cleared
         setFormCustomer('');
         setFormIssue('');
         setIsAnalyzing(false);
