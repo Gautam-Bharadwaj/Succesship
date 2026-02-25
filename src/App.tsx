@@ -972,7 +972,7 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
   const [showDebug, setShowDebug] = useState(false);
 
   // Active state
-  const [candidate, setCandidate] = useState('Jane Doe');
+  const [candidate, setCandidate] = useState('Hardik');
   const [role, setRole] = useState('Senior Engineer');
   const [prevCompany, setPrevCompany] = useState('RocketStartup');
   const [yearsExp, setYearsExp] = useState(4);
@@ -1108,7 +1108,7 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
             <div className="grid-2">
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Candidate Name *</label>
-                <input autoFocus className="custom-input" placeholder="e.g. Jane Doe" value={formCandidate} onChange={e => setFormCandidate(e.target.value)} required />
+                <input autoFocus className="custom-input" placeholder="e.g. Hardik" value={formCandidate} onChange={e => setFormCandidate(e.target.value)} required />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Target Role</label>
