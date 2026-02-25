@@ -813,5 +813,7 @@ const SupportScenario = () => {
         )}
       </div>
     </div>
+  );
+};
 
 export default App;
