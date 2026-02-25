@@ -383,6 +383,51 @@ const InvoiceScenario = () => {
   return (
     <div className="animate-fade-in">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+        <div>
+          <h1 className="page-title">Invoice Processing</h1>
+          <p className="page-description" style={{ marginBottom: 0 }}>
+            Assessing {vendor}'s new invoice (#{invoiceId}) for ₹{amount}.
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <div className="status-badge active" style={{ display: 'flex', gap: '6px' }}>
+            <SlidersHorizontal size={12} /> {strictness} Mode
+          </div>
+          <button className="primary-button-sm" onClick={handleOpenNew}>+ New Invoice</button>
+        </div>
+      </div>
+
+      <div className="grid-2">
+        <div className="card">
+          <h3 className="section-label">
+            <Inbox size={16} /> Immediate Context (Working Memory)
+          </h3>
+          <div className="data-group">
+            <div className="data-row">
+              <span className="data-label">Vendor</span>
+              <span className="data-value">{vendor}</span>
+            </div>
+            <div className="data-row">
+              <span className="data-label">Amount</span>
+              <span className="data-value font-mono">₹{amount}</span>
+            </div>
+            <div className="data-row">
+              <span className="data-label">Category</span>
+              <span className="data-value">{category}</span>
+            </div>
+            <div className="data-row">
+              <span className="data-label">PO Match</span>
+              <span className="data-value" style={{
+                color: poMatch === '100% Match' ? 'var(--status-success)' : (poMatch === 'Partial Match' ? 'var(--status-warning)' : 'var(--status-danger)')
+              }}>{poMatch}</span>
+            </div>
+            {notes && (
+              <div className="data-row" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '8px' }}>
+                <span className="data-label">Attached Notes</span>
+                <span className="data-value" style={{ fontSize: '0.9rem', fontStyle: 'italic', fontWeight: 400 }}>"{notes}"</span>
+              </div>
+            )}
+          </div>
     </div>
 
     <div className="grid-2">
