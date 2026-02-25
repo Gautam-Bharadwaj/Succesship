@@ -574,40 +574,6 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
           </div>
         </div>
 
-        {isHighRisk ? (
-          <div className="decision-box danger-theme grid-full">
-            <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
-              <Cpu size={16} /> AI Agent Decision
-            </h3>
-            <div className="decision-action">
-              <ShieldAlert size={28} /> Action Blocked: Flagged for QA
-            </div>
-            <div className="decision-reason">
-              Based on the combined memory graph and working context, the risk score ({riskScore}) exceeds the threshold ({threshold} in {strictness} setting). The agent has halted normal processing and escalated to the risk team.
-            </div>
-            <div className="tags">
-              <span className="tag danger">Risk Score: {riskScore} / 100</span>
-              <span className="tag warning">Threshold: {threshold}</span>
-              <span className="tag dark">Pattern Match: High</span>
-            </div>
-          </div>
-        ) : (
-          <div className="decision-box grid-full" style={{ background: 'var(--status-success-bg)', color: '#047857', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
-            <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
-              <Cpu size={16} /> AI Agent Decision
-            </h3>
-            <div className="decision-action" style={{ color: '#047857' }}>
-              <CheckCircle2 size={28} /> Auto-Approve Payment
-            </div>
-            <div className="decision-reason">
-              Context synthesis shows a risk score of {riskScore}, comfortably below the {threshold} threshold for {strictness} mode. The AI safely approves the payment for immediate release, saving manual review time.
-            </div>
-            <div className="tags">
-              <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Risk Score: {riskScore} / 100</span>
-              <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Auto-Processed</span>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
