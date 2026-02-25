@@ -189,6 +189,27 @@ const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
               <div className="memory-body">High priority. Loaded directly for the agent to consider.</div>
             </div>
             <div className="memory-item warning">
+              <div className="memory-header">
+                <span className="memory-title">Maturing</span>
+                <span className="memory-time">30-180 Days</span>
+              </div>
+              <div className="memory-body">Summarized and only pulled in if related to the current task.</div>
+            </div>
+            <div className="memory-item danger">
+              <div className="memory-header">
+                <span className="memory-title">Stale / Archived</span>
+                <span className="memory-time">180+ Days</span>
+              </div>
+              <div className="memory-body">Hidden away unless a systemic pattern keeps repeating.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const AnalyticsDashboard = () => (
   <div className="animate-fade-in">
     <h1 className="page-title">How ContextMind Works.</h1>
     <p className="page-description">
