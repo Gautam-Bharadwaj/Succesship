@@ -71,6 +71,19 @@ const App = () => {
             <div className="icon"><HeadphonesIcon size={16} /></div>
             Scenario: Support
           </button>
+          <button
+            className={`tab-button ${activeTab === 'hr' ? 'active' : ''}`}
+            onClick={() => setActiveTab('hr')}
+          >
+            <div className="icon"><Briefcase size={16} /></div>
+            Scenario: Hiring
+          </button>
+
+          <div style={{ width: '1px', height: '20px', background: 'var(--border)', margin: '0 8px' }} />
+
+          <button className="tab-button" onClick={() => setIsDark(!isDark)}>
+            <div className="icon">{isDark ? <Sun size={18} /> : <Moon size={18} />}</div>
+          </button>
         </div>
       </nav>
 
