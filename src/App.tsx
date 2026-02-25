@@ -741,7 +741,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
     riskScore -= 20;
   }
 
-  // Issue Severity
   const issueLower = issue.toLowerCase();
   if (issueLower.includes('outage') || issueLower.includes('down') || issueLower.includes('500')) {
     riskScore += 30;
