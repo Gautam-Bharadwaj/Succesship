@@ -1101,4 +1101,49 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
               Simulate candidate screening. The AI looks at previous companies and cross-references historical employee churn.
             </p>
           </div>
+          <button className="tab-button" onClick={() => setIsCreating(false)}>Cancel</button>
+        </div>
+
+        <div className="card" style={{ maxWidth: '800px', padding: '40px', margin: '0 auto' }}>
+          <form onSubmit={handleSend} className="data-group">
+            <div className="grid-2">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Candidate Name *</label>
+                <input autoFocus className="custom-input" placeholder="e.g. Jane Doe" value={formCandidate} onChange={e => setFormCandidate(e.target.value)} required />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Target Role</label>
+                <select className="custom-input" value={formRole} onChange={e => setFormRole(e.target.value)}>
+                  <option>Senior Engineer</option><option>Product Manager</option><option>Junior Developer</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="grid-2" style={{ marginTop: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Previous Company *</label>
+                <input className="custom-input" placeholder="e.g. RocketStartup" value={formPrev} onChange={e => setFormPrev(e.target.value)} required />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Years of Experience</label>
+                <input type="number" className="custom-input" value={formYears} onChange={e => setFormYears(parseInt(e.target.value))} required min={0} />
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px' }}>
+              <label className="data-label">AI Strictness</label>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                {['Relaxed', 'Normal', 'Strict'].map(level => (
+                  <button key={level} type="button" className={`tab-button ${formStrictness === level ? 'active' : ''}`}
+                    onClick={() => setFormStrictness(level)} style={{ flex: 1, justifyContent: 'center', border: '1px solid var(--border)' }}>
+                    {level}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button type="submit" className="primary-button" style={{ marginTop: '32px' }}>
+              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }}/>
+              Simulate Candidate Screening
+            </button>
 export default App;
