@@ -11,7 +11,6 @@ import {
   ShieldAlert,
   Activity,
   Inbox,
-  Link2,
   Cpu,
   Loader2,
   CheckCircle2,
@@ -88,7 +87,7 @@ const App = () => {
       </nav>
 
       <main className="main-content">
-        {activeTab === 'arch' && <ArchitectureView isDark={isDark} />}
+        {activeTab === 'arch' && <ArchitectureView />}
         {activeTab === 'analytics' && <AnalyticsDashboard />}
         {activeTab === 'invoice' && <InvoiceScenario isDark={isDark} />}
         {activeTab === 'support' && <SupportScenario isDark={isDark} />}
@@ -99,7 +98,7 @@ const App = () => {
 };
 
 // Overview of how the system works
-const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
+const ArchitectureView = () => {
   const [timeForward, setTimeForward] = useState(0);
 
   return (
@@ -146,15 +145,15 @@ const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
             <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>T + {timeForward} Months</span>
           </div>
           <p className="arch-desc" style={{ marginBottom: '16px' }}>
-            Slide to see how an event's influence decays over time algebraically. 
+            Slide to see how an event's influence decays over time algebraically.
             Formula: <code>Weight = e^(-λt)</code>
           </p>
 
-          <input 
-            type="range" 
-            min="0" max="24" 
-            value={timeForward} 
-            onChange={(e) => setTimeForward(parseInt(e.target.value))} 
+          <input
+            type="range"
+            min="0" max="24"
+            value={timeForward}
+            onChange={(e) => setTimeForward(parseInt(e.target.value))}
             style={{ marginBottom: '24px' }}
           />
 
@@ -165,9 +164,9 @@ const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
                 <span className="memory-time">{timeForward === 0 ? 'Just Now' : `${timeForward} Months Ago`}</span>
               </div>
               <div className="memory-body">
-                {timeForward < 3 ? "URGENT FLAG: Client is extremely frustrated. All SLAs are currently active and being heavily monitored." : 
-                 timeForward < 9 ? "Noted pattern of instability recently. Monitor closely during renewals." : 
-                 "Archived event. Client stabilized long ago. Context is ignored by AI to save tokens."}
+                {timeForward < 3 ? "URGENT FLAG: Client is extremely frustrated. All SLAs are currently active and being heavily monitored." :
+                  timeForward < 9 ? "Noted pattern of instability recently. Monitor closely during renewals." :
+                    "Archived event. Client stabilized long ago. Context is ignored by AI to save tokens."}
               </div>
               <div style={{ marginTop: '8px', fontSize: '0.8rem', fontFamily: 'monospace', color: 'var(--text-main)' }}>
                 Computed Context Weight: {(Math.exp(-0.15 * timeForward) * 100).toFixed(1)}%
@@ -307,7 +306,7 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
         setNotes(formNotes);
         setStrictness(formStrictness);
         setInvoiceId(`INV-${Math.floor(Math.random() * 90000) + 10000}`);
-        
+
         setFormVendor('');
         setFormAmount('');
         setFormNotes('');
@@ -595,7 +594,7 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
                   </div>
                 </div>
                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
-                   <Terminal size={14} /> See Trace Log
+                  <Terminal size={14} /> See Trace Log
                 </button>
               </div>
             </div>
@@ -605,20 +604,20 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
                 <Cpu size={16} /> AI Agent Decision
               </h3>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                 <div>
-                    <div className="decision-action" style={{ color: '#047857' }}>
-                      <CheckCircle2 size={28} /> Auto-Approve Payment
-                    </div>
-                    <div className="decision-reason">
-                      Context synthesis shows a risk score of {riskScore}, below the {threshold} threshold for {strictness} mode. The AI safely approves the payment.
-                    </div>
-                    <div className="tags">
-                      <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Risk Score: {riskScore} / 100</span>
-                      <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Auto-Processed</span>
-                    </div>
-                 </div>
-                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
-                   <Terminal size={14} /> See Trace Log
+                <div>
+                  <div className="decision-action" style={{ color: '#047857' }}>
+                    <CheckCircle2 size={28} /> Auto-Approve Payment
+                  </div>
+                  <div className="decision-reason">
+                    Context synthesis shows a risk score of {riskScore}, below the {threshold} threshold for {strictness} mode. The AI safely approves the payment.
+                  </div>
+                  <div className="tags">
+                    <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Risk Score: {riskScore} / 100</span>
+                    <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Auto-Processed</span>
+                  </div>
+                </div>
+                <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                  <Terminal size={14} /> See Trace Log
                 </button>
               </div>
             </div>
@@ -626,8 +625,8 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
 
           {showDebug && (
             <div className="json-terminal animate-fade-in" data-theme={isDark ? 'dark' : 'light'}>
-               <div className="terminal-header"><Terminal size={14}/> SYSTEM TRACE LOG</div>
-               <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
+              <div className="terminal-header"><Terminal size={14} /> SYSTEM TRACE LOG</div>
+              <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
             </div>
           )}
         </div>
@@ -689,10 +688,10 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
 
   // AI Evaluation Logic for Support Context
   let riskScore = 0;
-  const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success'}[] = [];
+  const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success' }[] = [];
 
   const customerLower = customer.toLowerCase();
-  
+
   if (customerLower.includes('techcorp')) {
     riskScore += 50;
     memoryContexts.push({
@@ -735,7 +734,7 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
   if (tier === 'Enterprise') {
     riskScore += 20;
     if (!customerLower.includes('techcorp')) {
-       memoryContexts.push({ title: "VIP Status", time: "Permanent", desc: "Enterprise SLA agreements mandate strict adherence.", type: "warning" });
+      memoryContexts.push({ title: "VIP Status", time: "Permanent", desc: "Enterprise SLA agreements mandate strict adherence.", type: "warning" });
     }
   } else if (tier === 'Free Tier') {
     riskScore -= 20;
@@ -801,7 +800,7 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
             <div className="grid-2">
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Customer / Company Name *</label>
-                <input 
+                <input
                   autoFocus className="custom-input" placeholder="e.g. Acme Corp, Startup XYZ..."
                   value={formCustomer} onChange={e => setFormCustomer(e.target.value)} required />
               </div>
@@ -840,7 +839,7 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
             </div>
 
             <button type="submit" className="primary-button" style={{ marginTop: '32px' }}>
-              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }}/>
+              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }} />
               Simulate Ticket Handling
             </button>
           </form>
@@ -893,7 +892,7 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
           </h3>
           <div className="memory-list">
             {memoryContexts.map((mem, idx) => (
-               <div key={idx} className={`memory-item ${mem.type}`}>
+              <div key={idx} className={`memory-item ${mem.type}`}>
                 <div className="memory-header">
                   <span className="memory-title">{mem.title}</span>
                   <span className="memory-time">{mem.time}</span>
@@ -911,21 +910,21 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
                 <Cpu size={16} /> AI Agent Decision
               </h3>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                 <div>
-                    <div className="decision-action">
-                      <AlertTriangle size={28} /> Emergency: Bypass Queue, Escalate to Tier 3
-                    </div>
-                    <div className="decision-reason">
-                      The combination of customer tier and historical metadata generated a risk score of {riskScore} (Threshold: {escalateThreshold}). The agent bypasses the standard queue.
-                    </div>
-                    <div className="tags">
-                      <span className="tag danger">Risk Index: {riskScore}</span>
-                      <span className="tag warning">Action: Escalate</span>
-                      <span className="tag dark">Focus: Churn</span>
-                    </div>
-                 </div>
-                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
-                   <Terminal size={14} /> See Trace Log
+                <div>
+                  <div className="decision-action">
+                    <AlertTriangle size={28} /> Emergency: Bypass Queue, Escalate to Tier 3
+                  </div>
+                  <div className="decision-reason">
+                    The combination of customer tier and historical metadata generated a risk score of {riskScore} (Threshold: {escalateThreshold}). The agent bypasses the standard queue.
+                  </div>
+                  <div className="tags">
+                    <span className="tag danger">Risk Index: {riskScore}</span>
+                    <span className="tag warning">Action: Escalate</span>
+                    <span className="tag dark">Focus: Churn</span>
+                  </div>
+                </div>
+                <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                  <Terminal size={14} /> See Trace Log
                 </button>
               </div>
             </div>
@@ -935,20 +934,20 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
                 <Cpu size={16} /> AI Agent Decision
               </h3>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                 <div>
-                    <div className="decision-action" style={{ color: '#1d4ed8' }}>
-                      <CheckCircle2 size={28} /> Handle Normally in Queue
-                    </div>
-                    <div className="decision-reason" style={{ color: '#1e40af' }}>
-                      The client's CRM history is stable (Risk Score {riskScore} is below {escalateThreshold}). The ticket will remain in the standard {priority.split(' ')[0]} queue.
-                    </div>
-                    <div className="tags">
-                      <span className="tag info">Risk Index: {riskScore}</span>
-                      <span className="tag info">Action: Follow SLA</span>
-                    </div>
-                 </div>
-                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
-                   <Terminal size={14} /> See Trace Log
+                <div>
+                  <div className="decision-action" style={{ color: '#1d4ed8' }}>
+                    <CheckCircle2 size={28} /> Handle Normally in Queue
+                  </div>
+                  <div className="decision-reason" style={{ color: '#1e40af' }}>
+                    The client's CRM history is stable (Risk Score {riskScore} is below {escalateThreshold}). The ticket will remain in the standard {priority.split(' ')[0]} queue.
+                  </div>
+                  <div className="tags">
+                    <span className="tag info">Risk Index: {riskScore}</span>
+                    <span className="tag info">Action: Follow SLA</span>
+                  </div>
+                </div>
+                <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                  <Terminal size={14} /> See Trace Log
                 </button>
               </div>
             </div>
@@ -956,8 +955,8 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
 
           {showDebug && (
             <div className="json-terminal animate-fade-in" data-theme={isDark ? 'dark' : 'light'}>
-               <div className="terminal-header"><Terminal size={14}/> SYSTEM TRACE LOG</div>
-               <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
+              <div className="terminal-header"><Terminal size={14} /> SYSTEM TRACE LOG</div>
+              <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
             </div>
           )}
         </div>
@@ -1019,10 +1018,10 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
 
   // AI Evaluation Logic for HR
   let riskScore = 0;
-  const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success'}[] = [];
+  const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success' }[] = [];
 
   const prevLower = prevCompany.toLowerCase();
-  
+
   if (prevLower.includes('rocket')) {
     riskScore += 60;
     memoryContexts.push({
@@ -1143,7 +1142,7 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
             </div>
 
             <button type="submit" className="primary-button" style={{ marginTop: '32px' }}>
-              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }}/>
+              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }} />
               Simulate Candidate Screening
             </button>
           </form>
@@ -1196,7 +1195,7 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
           </h3>
           <div className="memory-list">
             {memoryContexts.map((mem, idx) => (
-               <div key={idx} className={`memory-item ${mem.type}`}>
+              <div key={idx} className={`memory-item ${mem.type}`}>
                 <div className="memory-header">
                   <span className="memory-title">{mem.title}</span>
                   <span className="memory-time">{mem.time}</span>
@@ -1214,21 +1213,21 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
                 <Cpu size={16} /> AI Agent Decision
               </h3>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                 <div>
-                    <div className="decision-action">
-                      <ShieldAlert size={28} /> Flagged: High Flight Risk
-                    </div>
-                    <div className="decision-reason">
-                      Historical graph nodes indicate a high probability of churn for candidates originating from their previous employer. Risk Score {riskScore} exceeds threshold {escalateThreshold}. Human HR partner alerted.
-                    </div>
-                    <div className="tags">
-                      <span className="tag danger">Risk Index: {riskScore}</span>
-                      <span className="tag warning">Action: Flag for Review</span>
-                      <span className="tag dark">Pattern: Employee Churn</span>
-                    </div>
-                 </div>
-                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
-                   <Terminal size={14} /> See Trace Log
+                <div>
+                  <div className="decision-action">
+                    <ShieldAlert size={28} /> Flagged: High Flight Risk
+                  </div>
+                  <div className="decision-reason">
+                    Historical graph nodes indicate a high probability of churn for candidates originating from their previous employer. Risk Score {riskScore} exceeds threshold {escalateThreshold}. Human HR partner alerted.
+                  </div>
+                  <div className="tags">
+                    <span className="tag danger">Risk Index: {riskScore}</span>
+                    <span className="tag warning">Action: Flag for Review</span>
+                    <span className="tag dark">Pattern: Employee Churn</span>
+                  </div>
+                </div>
+                <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                  <Terminal size={14} /> See Trace Log
                 </button>
               </div>
             </div>
@@ -1238,20 +1237,20 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
                 <Cpu size={16} /> AI Agent Decision
               </h3>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                 <div>
-                    <div className="decision-action" style={{ color: '#1d4ed8' }}>
-                      <CheckCircle2 size={28} /> Proceed to Interview Stage 1
-                    </div>
-                    <div className="decision-reason" style={{ color: '#1e40af' }}>
-                      Graph history indicates safe retention patterns. Risk Score {riskScore} remains below {escalateThreshold}. Resume automatically pushed to technical screen.
-                    </div>
-                    <div className="tags">
-                      <span className="tag info">Risk Index: {riskScore}</span>
-                      <span className="tag info">Action: Proceed</span>
-                    </div>
-                 </div>
-                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
-                   <Terminal size={14} /> See Trace Log
+                <div>
+                  <div className="decision-action" style={{ color: '#1d4ed8' }}>
+                    <CheckCircle2 size={28} /> Proceed to Interview Stage 1
+                  </div>
+                  <div className="decision-reason" style={{ color: '#1e40af' }}>
+                    Graph history indicates safe retention patterns. Risk Score {riskScore} remains below {escalateThreshold}. Resume automatically pushed to technical screen.
+                  </div>
+                  <div className="tags">
+                    <span className="tag info">Risk Index: {riskScore}</span>
+                    <span className="tag info">Action: Proceed</span>
+                  </div>
+                </div>
+                <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                  <Terminal size={14} /> See Trace Log
                 </button>
               </div>
             </div>
@@ -1259,8 +1258,8 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
 
           {showDebug && (
             <div className="json-terminal animate-fade-in" data-theme={isDark ? 'dark' : 'light'}>
-               <div className="terminal-header"><Terminal size={14}/> SYSTEM TRACE LOG</div>
-               <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
+              <div className="terminal-header"><Terminal size={14} /> SYSTEM TRACE LOG</div>
+              <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
             </div>
           )}
         </div>
