@@ -625,6 +625,51 @@ const SupportScenario = () => {
             <span className="step-2">Evaluating Churn Probability...</span>
             <span className="step-3">Structuring Response Logic...</span>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isCreating) {
+    return (
+      <div className="animate-fade-in">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
+          <div>
+            <h1 className="page-title">Generate Support Context</h1>
+            <p className="page-description" style={{ marginBottom: 0 }}>
+              Build a custom support scenario to see how AI handles routing and escalation.
+            </p>
+          </div>
+          <button className="tab-button" onClick={() => setIsCreating(false)}>
+            Cancel
+          </button>
+        </div>
+
+        <div className="card" style={{ maxWidth: '800px', padding: '40px', margin: '0 auto' }}>
+          <form onSubmit={handleSend} className="data-group">
+            <div className="grid-2">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Customer / Company Name *</label>
+                <input
+                  autoFocus
+                  className="custom-input"
+                  placeholder="e.g. Acme Corp, Startup XYZ..."
+                  value={formCustomer}
+                  onChange={e => setFormCustomer(e.target.value)}
+                  required
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Customer Tier</label>
+                <select className="custom-input" value={formTier} onChange={e => setFormTier(e.target.value)}>
+                  <option>Enterprise</option>
+                  <option>Pro Plan</option>
+                  <option>Free Tier</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="grid-2" style={{ marginTop: '16px' }}>
     </div>
 
     <div className="grid-2">
