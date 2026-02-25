@@ -284,6 +284,7 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
   const [strictness, setStrictness] = useState('Normal');
 
   // Form state
+  // ... omitted standard useState setup logic for brevity
   const [formVendor, setFormVendor] = useState('');
   const [formAmount, setFormAmount] = useState('');
   const [formPoMatch, setFormPoMatch] = useState('100% Match');
