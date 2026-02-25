@@ -307,6 +307,7 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
         setNotes(formNotes);
         setStrictness(formStrictness);
         setInvoiceId(`INV-${Math.floor(Math.random() * 90000) + 10000}`);
+        
         setFormVendor('');
         setFormAmount('');
         setFormNotes('');
