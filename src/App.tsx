@@ -324,6 +324,7 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
     setFormNotes(notes);
     setFormStrictness(strictness);
     setIsCreating(true);
+    setShowDebug(false);
   }
 
   // AI Evaluation Logic
