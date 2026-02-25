@@ -1236,4 +1236,37 @@ const HRScenario = ({ isDark }: { isDark: boolean }) => {
             <div className="decision-box" style={{ background: 'var(--status-target-bg)', color: '#1e3a8a', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
               <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
                 <Cpu size={16} /> AI Agent Decision
+              </h3>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                 <div>
+                    <div className="decision-action" style={{ color: '#1d4ed8' }}>
+                      <CheckCircle2 size={28} /> Proceed to Interview Stage 1
+                    </div>
+                    <div className="decision-reason" style={{ color: '#1e40af' }}>
+                      Graph history indicates safe retention patterns. Risk Score {riskScore} remains below {escalateThreshold}. Resume automatically pushed to technical screen.
+                    </div>
+                    <div className="tags">
+                      <span className="tag info">Risk Index: {riskScore}</span>
+                      <span className="tag info">Action: Proceed</span>
+                    </div>
+                 </div>
+                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                   <Terminal size={14} /> See Trace Log
+                </button>
+              </div>
+            </div>
+          )}
+
+          {showDebug && (
+            <div className="json-terminal animate-fade-in" data-theme={isDark ? 'dark' : 'light'}>
+               <div className="terminal-header"><Terminal size={14}/> SYSTEM TRACE LOG</div>
+               <pre>{JSON.stringify(debugJSON, null, 2)}</pre>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default App;
