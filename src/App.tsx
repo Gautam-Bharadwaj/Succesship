@@ -692,7 +692,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
   const memoryContexts: { title: string, time: string, desc: string, type: 'danger' | 'warning' | 'info' | 'success'}[] = [];
 
   const customerLower = customer.toLowerCase();
-
   if (customerLower.includes('techcorp')) {
     riskScore += 50;
     memoryContexts.push({
