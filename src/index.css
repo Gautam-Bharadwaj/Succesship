@@ -21,6 +21,28 @@
   --status-success-bg: #ecfdf5;
 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme='dark'] {
+  --bg: #09090b;
+  --bg-subtle: #18181b;
+  --bg-muted: #27272a;
+  --border: #3f3f46;
+  --border-hover: #52525b;
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+
+  --accent-black: #ffffff;
+
+  --status-danger: #ef4444;
+  --status-danger-bg: rgba(239, 68, 68, 0.15);
+  --status-target: #60a5fa;
+  --status-target-bg: rgba(59, 130, 246, 0.15);
+  --status-warning: #fbbf24;
+  --status-warning-bg: rgba(245, 158, 11, 0.15);
+  --status-success: #34d399;
+  --status-success-bg: rgba(16, 185, 129, 0.15);
 }
 
 body {
