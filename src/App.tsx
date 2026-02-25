@@ -828,6 +828,7 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px' }}>
+              <label className="data-label">AI Panic Level</label>
               <div style={{ display: 'flex', gap: '12px' }}>
                 {['Relaxed', 'Normal', 'Strict'].map(level => (
                   <button
