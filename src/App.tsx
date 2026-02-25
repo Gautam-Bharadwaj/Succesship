@@ -203,6 +203,51 @@ const InvoiceScenario = () => {
       }, 2500);
     }
   };
+
+  const handleOpenNew = () => {
+    setFormVendor(vendor);
+    setFormAmount(amount);
+    setFormPoMatch(poMatch);
+    setFormCategory(category);
+    setFormNotes(notes);
+    setFormStrictness(strictness);
+    setIsCreating(true);
+  }
+
+  // AI Evaluation Logic
+  let riskScore = 0;
+  const riskReasons: { text: string, type: 'danger' | 'warning' | 'info' }[] = [];
+
+  const vendorLower = vendor.toLowerCase();
+  if (vendorLower.includes('xyz')) {
+    riskScore += 40;
+    riskReasons.push({ text: "Historical quality issues with supplier (-40)", type: 'danger' });
+  } else if (vendorLower.includes('scam') || vendorLower.includes('fake')) {
+    riskScore += 80;
+    riskReasons.push({ text: "Vendor flagged in internal blacklist (-80)", type: 'danger' });
+  } else {
+    riskReasons.push({ text: "Vendor has good standing", type: 'info' });
+  }
+
+  const amountNum = parseInt(amount.replace(/[^0-9]/g, ''));
+  if (amountNum > 200000) {
+    riskScore += 20;
+    riskReasons.push({ text: "High-value transaction above ₹2,00,000 threshold (+20)", type: 'warning' });
+  }
+
+  if (poMatch === 'Partial Match') {
+    riskScore += 30;
+    riskReasons.push({ text: "Purchase Order only partially matches (+30)", type: 'warning' });
+  } else if (poMatch === 'No PO') {
+    riskScore += 50;
+    riskReasons.push({ text: "No Purchase Order associated (+50)", type: 'danger' });
+  } else {
+    riskReasons.push({ text: "100% PO Match verified", type: 'info' });
+  }
+
+  if (category === 'Hardware Components') {
+    riskScore += 10;
+  } else if (category === 'Software Subscriptions') {
     </div>
 
     <div className="grid-2">
