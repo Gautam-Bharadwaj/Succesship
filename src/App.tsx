@@ -637,7 +637,6 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
 };
 
 // Scenario 2
-const SupportScenario = () => {
   const [isCreating, setIsCreating] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
