@@ -670,6 +670,51 @@ const SupportScenario = () => {
             </div>
 
             <div className="grid-2" style={{ marginTop: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Issue Summary *</label>
+                <input
+                  className="custom-input"
+                  placeholder="e.g. API 500 Error, Password Reset..."
+                  value={formIssue}
+                  onChange={e => setFormIssue(e.target.value)}
+                  required
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <label className="data-label">Current Queue Priority</label>
+                <select className="custom-input" value={formPriority} onChange={e => setFormPriority(e.target.value)}>
+                  <option>Tier 1 (SLA: 24.0 Hours)</option>
+                  <option>Tier 2 (SLA: 4.0 Hours)</option>
+                  <option>Tier 3 (SLA: 1.0 Hour)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '16px' }}>
+              <label className="data-label" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <SlidersHorizontal size={16} /> AI Panic Level (Escalation Strictness)
+              </label>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                {['Relaxed', 'Normal', 'Strict'].map(level => (
+                  <button
+                    key={level}
+                    type="button"
+                    className={`tab-button ${formStrictness === level ? 'active' : ''}`}
+                    onClick={() => setFormStrictness(level)}
+                    style={{ flex: 1, justifyContent: 'center', border: '1px solid var(--border)' }}
+                  >
+                    {level}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button type="submit" className="primary-button" style={{ marginTop: '32px' }}>
+              <Zap size={18} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '8px' }} />
+              Simulate Ticket Handling
+            </button>
+          </form>
+        </div>
     </div>
 
     <div className="grid-2">
