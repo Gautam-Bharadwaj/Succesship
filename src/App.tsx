@@ -684,6 +684,7 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
     setFormPriority(priority);
     setFormStrictness(strictness);
     setIsCreating(true);
+    setShowDebug(false);
   }
 
   // AI Evaluation Logic for Support Context
