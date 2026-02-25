@@ -486,51 +486,6 @@ const InvoiceScenario = () => {
         )}
       </div>
     </div>
-
-    <div className="grid-2">
-      <div className="card">
-        <h3 className="section-label">
-          <Inbox size={16} /> Immediate Context (Working Memory)
-        </h3>
-        <div className="data-group">
-          <div className="data-row">
-            <span className="data-label">Vendor</span>
-            <span className="data-value">Supplier XYZ</span>
-          </div>
-          <div className="data-row">
-            <span className="data-label">Amount</span>
-            <span className="data-value font-mono">₹2,50,000</span>
-          </div>
-          <div className="data-row">
-            <span className="data-label">Status</span>
-            <span className="data-value" style={{ color: 'var(--status-target)' }}>Pending Release</span>
-          </div>
-          <div className="data-row">
-            <span className="data-label">PO Match</span>
-            <span className="data-value">100% Match</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="card">
-        <h3 className="section-label">
-          <History size={16} /> Retrieved Past Memories
-        </h3>
-        <div className="memory-list">
-          <div className="memory-item danger">
-            <div className="memory-header">
-              <span className="memory-title">Quality Issue</span>
-              <span className="memory-time">4 Months Ago</span>
-            </div>
-            <div className="memory-body">
-              This supplier sent 30% broken items. It cost us ₹50,000 to replace and delayed production by 2 weeks.
-            </div>
-          </div>
-          <div className="memory-item warning">
-            <div className="memory-header">
-              <span className="memory-title">Payment Friction</span>
-              <span className="memory-time">8 Months Ago</span>
-            </div>
             <div className="memory-body">
               Vendor claimed they didn't get payment for invoice #INV-4412 even though we sent it.
             </div>
