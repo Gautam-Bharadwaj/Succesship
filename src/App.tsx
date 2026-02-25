@@ -12,7 +12,6 @@ import {
   Activity,
   Inbox,
   Link2,
-  Cpu
 } from 'lucide-react';
 import './index.css';
 
