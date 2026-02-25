@@ -808,9 +808,6 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label className="data-label">Customer Tier</label>
                 <select className="custom-input" value={formTier} onChange={e => setFormTier(e.target.value)}>
-                  <option>Enterprise</option>
-                  <option>Pro Plan</option>
-                  <option>Free Tier</option>
                 </select>
               </div>
             </div>
