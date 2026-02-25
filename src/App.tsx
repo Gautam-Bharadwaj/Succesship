@@ -158,16 +158,6 @@ const ArchitectureView = () => (
 );
 
 // Scenario 1
-const InvoiceScenario = () => (
-  <div className="animate-fade-in">
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '40px' }}>
-      <div>
-        <h1 className="page-title">Invoice Processing</h1>
-        <p className="page-description" style={{ marginBottom: 0 }}>
-          Assessing Supplier XYZ's new invoice (#INV-88301) for ₹2,50,000.
-        </p>
-      </div>
-      <div className="status-badge active">Live Demo</div>
     </div>
 
     <div className="grid-2">
