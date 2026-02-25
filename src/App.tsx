@@ -735,6 +735,7 @@ const SupportScenario = ({ isDark }: { isDark: boolean }) => {
   if (tier === 'Enterprise') {
     riskScore += 20;
     if (!customerLower.includes('techcorp')) {
+       memoryContexts.push({ title: "VIP Status", time: "Permanent", desc: "Enterprise SLA agreements mandate strict adherence.", type: "warning" });
     }
   } else if (tier === 'Free Tier') {
     riskScore -= 20;
