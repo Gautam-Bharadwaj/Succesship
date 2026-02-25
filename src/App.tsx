@@ -211,44 +211,6 @@ const ArchitectureView = ({ isDark }: { isDark: boolean }) => {
 
 const AnalyticsDashboard = () => (
   <div className="animate-fade-in">
-            <span className="data-value">Direct Link (1 Degree)</span>
-          </div>
-          <div className="data-row">
-            <span className="data-label">3. Time Decay</span>
-            <span className="data-value font-mono">Formula: e^(-λt)</span>
-          </div>
-        </div>
-        <div className="arch-desc">
-          Older info naturally loses importance over time. A major failure 4 months ago still matters heavily, but a minor delay from 4 years ago is ignored.
-        </div>
-      </div>
-
-      <div className="card">
-        <h3 className="section-label">
-          <Activity size={16} /> Memory Lifecycle
-        </h3>
-        <div className="memory-list">
-          <div className="memory-item info">
-            <div className="memory-header">
-              <span className="memory-title">Fresh</span>
-              <span className="memory-time">0-30 Days</span>
-            </div>
-            <div className="memory-body">High priority. Loaded directly for the agent to consider.</div>
-          </div>
-          <div className="memory-item warning">
-            <div className="memory-header">
-              <span className="memory-title">Maturing</span>
-              <span className="memory-time">30-180 Days</span>
-            </div>
-            <div className="memory-body">Summarized and only pulled in if related to the current task.</div>
-          </div>
-          <div className="memory-item danger">
-            <div className="memory-header">
-              <span className="memory-title">Stale / Archived</span>
-              <span className="memory-time">180+ Days</span>
-            </div>
-            <div className="memory-body">Hidden away unless a systemic pattern keeps repeating.</div>
-          </div>
         </div>
       </div>
     </div>
