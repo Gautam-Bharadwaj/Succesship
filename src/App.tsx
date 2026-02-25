@@ -574,6 +574,51 @@ const InvoiceScenario = ({ isDark }: { isDark: boolean }) => {
           </div>
         </div>
 
+        <div className="grid-full">
+          {isHighRisk ? (
+            <div className="decision-box danger-theme">
+              <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+                <Cpu size={16} /> AI Agent Decision
+              </h3>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div>
+                  <div className="decision-action">
+                    <ShieldAlert size={28} /> Action Blocked: Flagged for QA
+                  </div>
+                  <div className="decision-reason">
+                    Based on the combined memory graph and working context, the risk score ({riskScore}) exceeds the threshold ({threshold} in {strictness} setting). The agent has halted normal processing.
+                  </div>
+                  <div className="tags">
+                    <span className="tag danger">Risk Score: {riskScore} / 100</span>
+                    <span className="tag warning">Threshold: {threshold}</span>
+                    <span className="tag dark">Pattern Match: High</span>
+                  </div>
+                </div>
+                <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                   <Terminal size={14} /> See Trace Log
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="decision-box" style={{ background: 'var(--status-success-bg)', color: '#047857', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+              <h3 className="section-label" style={{ color: 'inherit', opacity: 0.8 }}>
+                <Cpu size={16} /> AI Agent Decision
+              </h3>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                 <div>
+                    <div className="decision-action" style={{ color: '#047857' }}>
+                      <CheckCircle2 size={28} /> Auto-Approve Payment
+                    </div>
+                    <div className="decision-reason">
+                      Context synthesis shows a risk score of {riskScore}, below the {threshold} threshold for {strictness} mode. The AI safely approves the payment.
+                    </div>
+                    <div className="tags">
+                      <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Risk Score: {riskScore} / 100</span>
+                      <span className="tag success" style={{ background: 'rgba(16, 185, 129, 0.15)', color: '#047857' }}>Auto-Processed</span>
+                    </div>
+                 </div>
+                 <button className="secondary-button" onClick={() => setShowDebug(!showDebug)}>
+                   <Terminal size={14} /> See Trace Log
       </div>
     </div>
   );
