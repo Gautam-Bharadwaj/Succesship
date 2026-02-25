@@ -580,6 +580,51 @@ const SupportScenario = () => {
       title: "General Interaction",
       time: "Historical",
       desc: "Standard monthly interactions. Customer health score is stable at 90/100.",
+      type: "success"
+    });
+  }
+
+  // Tier Adjustment
+  if (tier === 'Enterprise') {
+    riskScore += 20;
+    if (!customerLower.includes('techcorp')) {
+      memoryContexts.push({
+        title: "VIP Status",
+        time: "Permanent",
+        desc: "Enterprise SLA agreements mandate strict adherence. High financial penalty for breaches.",
+        type: "warning"
+      });
+    }
+  } else if (tier === 'Free Tier') {
+    riskScore -= 20;
+  }
+
+  // Issue Severity
+  const issueLower = issue.toLowerCase();
+  if (issueLower.includes('outage') || issueLower.includes('down') || issueLower.includes('500')) {
+    riskScore += 30;
+  } else if (issueLower.includes('billing') || issueLower.includes('refund')) {
+    riskScore += 15;
+  }
+
+  // Define thresholds based on strictness
+  let escalateThreshold = 60; // Base: if >= 60, escalate to T3 immediately
+  if (strictness === 'Strict') escalateThreshold = 40; // Overly cautious, escalates almost everything
+  if (strictness === 'Relaxed') escalateThreshold = 80; // Only escalates massive fires
+
+  const isEscalationNeeded = riskScore >= escalateThreshold;
+
+  if (isAnalyzing) {
+    return (
+      <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '50vh', gap: '24px' }}>
+        <Loader2 size={48} className="spin-animation" color="var(--status-target)" />
+        <div style={{ textAlign: 'center' }}>
+          <h2 style={{ marginBottom: '8px' }}>ContextMind AI is analyzing...</h2>
+          <div className="processing-steps">
+            <span className="step-1">Scanning CRM for Client History...</span>
+            <span className="step-2">Evaluating Churn Probability...</span>
+            <span className="step-3">Structuring Response Logic...</span>
+          </div>
     </div>
 
     <div className="grid-2">
